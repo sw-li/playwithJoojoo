@@ -1,0 +1,1 @@
+document.onclick = (e) => console.log(e.target + " is clicked")

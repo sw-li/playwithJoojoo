@@ -1,0 +1,27 @@
+body{
+    background-color: green;
+}
+#main{
+    background-image: url("/images/catheader.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.imgContainers{
+    width: 25vw;
+}
+
+#entries{
+    margin: 20vh 5vw;
+    display: flex;
+    padding: 30px;
+    justify-content: space-around;
+    align-content: center;
+}
+
+img{
+    object-fit: cover;
+    height: auto;
+    max-width: 100%;
+}
