@@ -1,27 +1,122 @@
-body{
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;1,500&display=swap');
+
+
+*{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+h1{
+    font-size: 1.5em;
+    font-weight: bolder;
+    color: white;
+    margin: 0;
+}
+p{
+    font-size: 0.8em;
+    color: pink;
+    margin: 0;
+}
+button{
+    font-size: 1em;
+    color: pink;
+    background-color: transparent;
+    height: 50px;
+    width: 100px;
+    border-radius: 5px;
+    border: 1px solid pink;
+    text-align: center;
+}
+
+body {
     background-color: green;
 }
-#main{
+
+#main {
+    border-radius: 15px;
+    margin: 50px;
     background-image: url("/images/catheader.jpg");
+    background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    min-width: 800px;
+    max-width: 1350px;
 }
 
 
-.imgContainers{
-    width: 25vw;
-}
-
-#entries{
-    margin: 20vh 5vw;
+#entries {
+    margin: 25vh 5vw;
     display: flex;
     padding: 30px;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-content: center;
 }
 
-img{
+.gameEntry{
+    max-width: 300px;
+    max-height: 400px;
+}
+
+input {
+    opacity: 50%;
+}
+
+input:hover {
+    opacity: 1;
+    
+}
+
+#instagram {
+    padding: 10px 50px;
+}
+
+img {
     object-fit: cover;
     height: auto;
     max-width: 100%;
+}
+
+
+.games{
+    display: flex;
+    justify-content:space-around;
+}
+.gameDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.intro{
+    padding: 20px;
+}
+
+canvas {
+    width: 500px; 
+    height: 500px; 
+    background-color: antiquewhite;
+}
+
+
+
+.gameboard {
+    border-radius: 15px;
+    margin: 0 50px;
+    width: 530px;
+    height: 600px;
+    background-color: rgba(75, 146, 116, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.gameArea {
+    margin: 15px;
 }
