@@ -1,4 +1,4 @@
-class Composant{
+class Food{
     constructor(x,y,nature = "meat"){
         this.x = x
         this.y = y

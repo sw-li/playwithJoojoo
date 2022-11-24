@@ -1,10 +1,16 @@
 const gameDivs = [...document.getElementsByClassName("gameDiv")]
 
+
+
+
+
+
 window.onload = (e) => {
     gameDivs.map(game => game.style.display = "none")
 }
 
 
+//HTML page ttransition
 document.onclick = (e) => {
     if(e.target.classList.contains("toAli")) {
             document.getElementById("entries").style.display = "none"
@@ -13,6 +19,7 @@ document.onclick = (e) => {
     if(e.target.classList.contains("toShengwei")) {
             document.getElementById("entries").style.display = "none"
             document.getElementById("gameShengwei").style.display = "flex"
+            loadGame2()
         }
     if(e.target.classList.contains("toJoojoo")) {
             document.getElementById("entries").style.display = "none"

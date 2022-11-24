@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;1,500&display=swap');
 
-
+/* Main HTML transition part */
 *{
     font-family: 'Josefin Sans', sans-serif;
 }
@@ -40,22 +40,27 @@ body {
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
-    min-width: 800px;
+    min-width: 1000px;
     max-width: 1350px;
 }
 
 
 #entries {
-    margin: 25vh 5vw;
+    margin: 150px 50px;
     display: flex;
-    padding: 30px;
     justify-content: space-evenly;
     align-content: center;
 }
 
+.imgContainers{
+    height: 300px;
+
+}
+
 .gameEntry{
-    max-width: 300px;
-    max-height: 400px;
+    height: inherit;
+   object-fit: cover;
+   padding: 0;
 }
 
 input {
@@ -105,6 +110,65 @@ canvas {
 
 
 
+/* arrange 16 cards in a 500 * 500 board */
+/* card flipping part */
+
+.gameArea {
+    margin: 15px;
+    border-radius: 5px;
+    width: 500px; 
+    height: 500px; 
+    background-color: transparent;
+}
+
+.card {
+    width: 81px;
+    height: 81px;
+    margin: 15px;
+    padding: 5px;
+    position: relative;
+    display: inline-block;
+    border-radius: 3px;
+    overflow: hidden;
+
+}
+
+.cardFace {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: inline-block; 
+    perspective: 300px;
+    transform-style: preserve-3d;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease;
+}
+.card .back{
+    background-color: pink;
+}
+.card .front {
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+.card.turned {
+    pointer-events: none;
+}
+.card.turned .front {
+    transform: rotateY(0deg);
+}
+.card.turned .back {
+    transform: rotateY(180deg);
+}
+
+
+
+/* canvas game */
 .gameboard {
     border-radius: 15px;
     margin: 0 50px;
@@ -115,8 +179,4 @@ canvas {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-}
-
-.gameArea {
-    margin: 15px;
 }
