@@ -27,12 +27,17 @@ class Game2{
 
 }
 
-/* class Game3 extends Game2{
+class Game3 extends Game2{
     constructor(cards){
-        
+        super(cards)
+        this.blood = 3;
+    }
+
+    gameFinished(){
+        return this.blood ===0;
     }
 }
- */
+
 
 function randomIndexOf(maxIndex){
     return Math.floor(Math.random()*maxIndex)

@@ -8,39 +8,100 @@ const cats = [
   { name: "cat6", img: "cat6.jpg" },
   { name: "cat7", img: "cat7.jpg" },
   { name: "cat8", img: "cat8.jpg" },
-  { name: "cat1", img: "cat1.jpg" },
-  { name: "cat2", img: "cat2.jpg" },
-  { name: "cat3", img: "cat3.jpg" },
-  { name: "cat4", img: "cat4.jpg" },
-  { name: "cat5", img: "cat5.jpg" },
-  { name: "cat6", img: "cat6.jpg" },
-  { name: "cat7", img: "cat7.jpg" },
-  { name: "cat8", img: "cat8.jpg" },
-];
+  { name: "cat9", img: "cat9.jpg" },
+  { name: "cat10", img: "cat10.jpg" },
+  { name: "cat11", img: "cat11.jpg" },
+  { name: "cat12", img: "cat12.jpg" },
+  { name: "cat13", img: "cat13.jpg" },
+  { name: "cat14", img: "cat14.jpg" },
+  { name: "cat15", img: "cat15.jpg" },
+  { name: "cat16", img: "cat16.jpg" },
+]
+
+const shrimps = [
+  {name: "Shrimp1", img:"Shrimp1.png", forCat: true, forCanivore: true},
+  {name: "Shrimp2", img:"Shrimp2.png", forCat: true, forCanivore: true},
+  {name: "Shrimp3", img:"Shrimp3.png", forCat: true, forCanivore: true},
+  {name: "Shrimp1", img:"Shrimp1.png", forCat: true, forCanivore: true},
+  {name: "Shrimp2", img:"Shrimp2.png", forCat: true, forCanivore: true},
+  {name: "Shrimp3", img:"Shrimp3.png", forCat: true, forCanivore: true},
+  {name: "Shrimp1", img:"Shrimp1.png", forCat: true, forCanivore: true},
+  {name: "Shrimp2", img:"Shrimp2.png", forCat: true, forCanivore: true},
+  {name: "Shrimp3", img:"Shrimp3.png", forCat: true, forCanivore: true},
+  {name: "Shrimp1", img:"Shrimp1.png", forCat: true, forCanivore: true},
+  {name: "Shrimp2", img:"Shrimp2.png", forCat: true, forCanivore: true},
+  {name: "Shrimp3", img:"Shrimp3.png", forCat: true, forCanivore: true},
+  {name: "Shrimp1", img:"Shrimp1.png", forCat: true, forCanivore: true},
+  {name: "Shrimp2", img:"Shrimp2.png", forCat: true, forCanivore: true},
+  {name: "Shrimp3", img:"Shrimp3.png", forCat: true, forCanivore: true},
+  {name: "Shrimp1", img:"Shrimp1.png", forCat: true, forCanivore: true},
+  {name: "Shrimp2", img:"Shrimp2.png", forCat: true, forCanivore: true},
+  {name: "Shrimp3", img:"Shrimp3.png", forCat: true, forCanivore: true},
+]
+
+const food = [
+  {name:"Pizza", img:"Pizza.png", forCat: false, forCanivore:true},
+  {name:"Beet", img:"Beet.png",forCat: false, forCanivore:false},
+  {name:"Berries", img:"Berries.png",forCat: false, forCanivore:false},
+  {name:"Burger", img:"Burger.png",forCat: false, forCanivore:true},
+  {name:"Carrote", img:"Carrote.png",forCat: false, forCanivore:false},
+  {name:"Cheese",img:"Cheese.png",forCat: false, forCanivore:true},
+  {name:"Dumplings",img:"Dumplings.png",forCat: false, forCanivore:true},
+  {name:"Egg",img:"Egg.png",forCat: false, forCanivore:true},
+  {name:"Egg2",img:"Egg2.png",forCat: false, forCanivore:true},
+  {name:"Hotdog",img:"Hotdog.png",forCat: false, forCanivore:true},
+  {name:"Mushrooms1",img:"Mushrooms1.png",forCat: false, forCanivore:false},
+  {name:"Mushrooms2",img:"Mushrooms2.png",forCat: false, forCanivore:false},
+  {name:"Mushrooms3",img:"Mushrooms3.png",forCat: false, forCanivore:false},
+  {name:"Potatos",img:"Potatos.png",forCat: false, forCanivore:false},
+  {name:"Radish",img:"Radish.png",forCat: false, forCanivore:false},
+  {name:"Roti1",img:"Roti1.png",forCat: false, forCanivore:true},
+  {name:"Roti2",img:"Roti2.png",forCat: false, forCanivore:true},
+  {name:"Sausage",img:"Sausage.png",forCat: false, forCanivore:true},
+  {name:"Steak",img:"Steak.png",forCat: false, forCanivore:true},
+  {name:"Sushi1",img:"Sushi1.png",forCat: false, forCanivore:true},
+  {name:"Sushi2",img:"Sushi2.png",forCat: false, forCanivore:true},
+  {name:"Sushi3",img:"Sushi3.png",forCat: false, forCanivore:true},
+  {name:"Sushi4",img:"Sushi4.png",forCat: false, forCanivore:true},
+  {name:"Tomato",img:"Tomato.png",forCat: false, forCanivore:false},
+  {name:"Turkey",img:"Turkey.png",forCat: false, forCanivore:true},
+]
+
+
+// for game 2 and 3
 let selectedCards = [];
-const findCats = new Game2(cats);
-const playBtn2 = document.querySelector("#game2 button");
+let randomCatsForGame = genericShuffle(cats).splice(0,8)
+let findCats = new Game2(randomCatsForGame.concat(randomCatsForGame));
+let nbShrimps = 5;
+let shripsForGame = genericShuffle(shrimps).splice(0,5)
+let otherFood = genericShuffle(food).splice(0, 16-nbShrimps)
+let findShrimps = new Game3(shripsForGame.concat(otherFood))
+
+
+
+const playBtn2 = document.querySelector("#game2 .playPause");
+const playBtn3 = document.querySelector("#game3 .playPause");
 const game2Board = document.querySelector("#game2 .gameArea");
 const game3Board = document.querySelector("#game3 .gameArea");
 
 window.onload = (e) => {
   gameDivs.map((game) => (game.style.display = "none"));
+  //loadGame1();
   loadGame2();
-
-  // game 2
+  loadGame3();
 
   let cardNodes = game2Board.querySelectorAll(".card");
   let cardsElemArr = [...cardNodes];
+
 };
 
-function endGame() {
-  console.log(`you finished the game in ${findCats.pickedPairs}`);
-}
 
 function loadGame2() {
   findCats.shuffle();
   findCats.pickedPairs =0
   findCats.rightPairs =0
+  document.querySelector(".picked").innerHTML = "Nomber of tentation: " + findCats.pickedPairs
+  document.querySelector(".right").innerHTML = "Right pairs: " + findCats.rightPairs
   let html = "";
   game2Board.innerHTML = "";
   findCats.cards.forEach((cat) => {
@@ -72,46 +133,86 @@ document.onclick = (e) => {
     document.getElementById("entries").style.display = "flex";
     gameDivs.map((game) => (game.style.display = "none"));
   }
+  if(e.target.classList.contains("annoncementBtn")){
+    e.target.parentNode.style.display = "none"
+    loadGame2()
+  }
 };
 
 // game2 manipulation
-game2Board.onclick = (e) => {
-  if (e.target.classList.contains("cardFace")) {
-    // do the game rules here
-    card = e.target.parentNode;
+function game2Start(){
+  game2Board.onclick = (e) => {
+    if (e.target.classList.contains("cardFace")) {
+      // do the game rules here
+      card = e.target.parentNode;
+  
+      // check only between two cards
+      if(selectedCards.length ===2){
+        selectedCards[0].classList.remove("turned")
+        selectedCards[1].classList.remove("turned")
+        selectedCards = []
+      }
+  
+      // turn only the unturned ones
+      if (!card.classList.contains("turned")) {
+        card.classList.add("turned");
+        selectedCards.push(card)
+      }
+  
+      //if we have a pair, check pair
+      if(selectedCards.length ===2){
+        findCats.pickedPairs ++
+        if(findCats.match(selectedCards[0].dataset.name,selectedCards[1].dataset.name)){
+          findCats.rightPairs++
+          selectedCards =[]
+        }else{}
+      }
+      //update score
+      document.querySelector(".picked").innerHTML = "Nomber of tentation: " + findCats.pickedPairs
+      document.querySelector(".right").innerHTML = "Right pairs: " + findCats.rightPairs
+      // winning condition here. 
+      if(findCats.gameFinished()){
+        console.log("You won!")
+        game2Board.parentNode.querySelector(".dialog").style.display = "flex"
+        game2Board.parentNode.querySelector(".annoncement").innerHTML = `You finished the game after ${findCats.pickedPairs} try`
+      }
+    }
+  };
+}
 
-    // check only between two cards
-    if(selectedCards.length ===2){
-      selectedCards[0].classList.remove("turned")
-      selectedCards[1].classList.remove("turned")
-      selectedCards = []
-    }
-
-    // turn only the unturned ones
-    if (!card.classList.contains("turned")) {
-      card.classList.add("turned");
-      selectedCards.push(card)
-    }
-
-    //if we have a pair, check pair
-    if(selectedCards.length ===2){
-      findCats.pickedPairs ++
-      if(findCats.match(selectedCards[0].dataset.name,selectedCards[1].dataset.name)){
-        findCats.rightPairs++
-        selectedCards =[]
-      }else{}
-    }
-    //update score
-    document.querySelector(".picked").innerHTML = "Nomber of tentation: " + findCats.pickedPairs
-    document.querySelector(".right").innerHTML = "Right pairs: " + findCats.rightPairs
-    // winning condition here. 
-    if(findCats.gameFinished){
-      console.log("You won!")
-    }
-  }
-};
 
 playBtn2.onclick= ()=>{
   console.log("play again")
   loadGame2()
+  game2Start()
+}
+
+function genericShuffle(arr){
+  for(let i = arr.length-1; i>0; i--){
+    const cardHolder = arr[i]
+    const newPos = randomIndexOf(i)
+    arr[i] = arr[newPos]
+    arr[newPos] = cardHolder
+}
+return arr
+}
+
+
+
+function loadGame3(){
+  findShrimps.shuffle();
+  let html = "";
+  game3Board.innerHTML = "";
+  findShrimps.cards.forEach((food) => {
+    html += ` 
+      <div class="card" data-name=${food.name}>
+      <div class="cardFace back" ></div>
+      <div class="cardFace front" style="background-image: url(/images/cats/${food.img});"> </div >
+      </div>`;
+  });
+  game3Board.innerHTML = html;
+}
+
+function chrometer(){
+
 }

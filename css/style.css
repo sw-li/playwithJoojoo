@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,700;1,500;1,700&display=swap');
 
 /* Main HTML transition part */
 *{
@@ -7,28 +7,35 @@
 
 h1{
     font-size: 1.5em;
-    font-weight: bolder;
+    font-weight:700;
     color: white;
     margin: 0;
 }
 p{
-    font-size: 1em;
+    font-size: 1.25em;
     color: pink;
     margin: 0;
 }
-button{
-    font-size: 1em;
-    color: pink;
-    background-color: transparent;
-    height: 50px;
-    width: 100px;
-    border-radius: 5px;
-    border: 1px solid pink;
-    text-align: center;
-}
+
 
 body {
     background-color: green;
+}
+
+.dialog{
+    width: 500px;
+    height: 500px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    position: absolute;
+}
+
+.annoncement{
+    font-weight: 900;
+    color: gold;
 }
 
 #main {
@@ -174,7 +181,7 @@ img {
 
 .score {
     margin: 0;
-    color: gold;
+    color:fuchsia;
 }
 
 
