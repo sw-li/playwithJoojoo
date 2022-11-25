@@ -101,19 +101,25 @@ img {
 .intro{
     padding: 20px;
 }
-
-canvas {
-    width: 500px; 
-    height: 500px; 
-    background-color: antiquewhite;
+.gameboard {
+    border-radius: 15px;
+    margin: 0 50px;
+    width: 530px;
+    height: 600px;
+    background-color: rgba(75, 146, 116, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 }
+
 
 
 
 /* arrange 16 cards in a 500 * 500 board */
 /* card flipping part */
 
-.gameArea {
+.memoryGame {
     margin: 15px;
     border-radius: 5px;
     width: 500px; 
@@ -169,14 +175,10 @@ canvas {
 
 
 /* canvas game */
-.gameboard {
-    border-radius: 15px;
-    margin: 0 50px;
-    width: 530px;
-    height: 600px;
-    background-color: rgba(75, 146, 116, 0.7);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
+.canvasGame {
+    width: 500px; 
+    height: 500px; 
+    margin: 15px;
+    
+    background-color: antiquewhite;
 }
