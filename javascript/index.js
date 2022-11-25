@@ -101,12 +101,14 @@ game2Board.onclick = (e) => {
         selectedCards =[]
       }else{}
     }
-    
+    //update score
+    document.querySelector(".picked").innerHTML = "Nomber of tentation: " + findCats.pickedPairs
+    document.querySelector(".right").innerHTML = "Right pairs: " + findCats.rightPairs
     // winning condition here. 
+    if(findCats.gameFinished){
+      console.log("You won!")
+    }
   }
-
-
-  //update score
 };
 
 playBtn2.onclick= ()=>{
