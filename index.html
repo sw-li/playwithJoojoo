@@ -52,7 +52,7 @@
                     <div id="timeOption" style="text-align:center;">
                         <input id="checkbox" type="checkbox" onchange="timeGame()">
                         <label for="checkbox">Time limit:</label>
-                        <input id="timeLimit" type="number" style="width:25px;"  value="1" onchange="timeGame()">
+                        <input id="timeLimit" type="number" value="30" style="width:25px;"  onchange="timeGame()">
                         <label for="timeLimit">s</label>
                     </div>
                     <input class="playPause intro" type="image" src="images/Play.png"
@@ -65,9 +65,15 @@
                     <!-- <p class="life"> &#10084 &#10084 &#10084</p> -->
                     <div class="gameArea memoryGame">
                     </div>
-                    <div class="dialog">
-                        <h1 class="annoncement">You won!</h1>
+                    <div class="dialog wining" id="winingDialog">
+                        <h1 class="annoncement win">You won!</h1>
                         <input class="annoncementBtn" type="image" src="images/Reload (1).png">
+
+                    </div>
+                    <div class="dialog timeUp" id="timeUpDialog">
+                        <h1 class="annoncement lose">Sorry, you didn't finish it :(</h1>
+                        <input class="annoncementBtn" type="image" src="images/Reload (4).png">
+
                     </div>
 
                 </div>

@@ -4,10 +4,12 @@ class Game2 {
     this.cards = cards;
     this.pickedPairs = 0;
     this.rightPairs = 0;
-    this.time = -1;
     this.timer = null;
-    this.timeLimit = null;
+    this.timeLimit = 0;
+    this.time = 0;
     this.timerDom = null;
+    this.winingDialog = document.getElementById("winingDialog")
+    this.timeUpDialog = document.getElementById("timeUpDialog")
   }
   shuffle() {
     if (this.cards == undefined) return undefined;
@@ -20,25 +22,24 @@ class Game2 {
       this.cards[newPos] = cardHolder;
     }
   }
-  init(){
-    this.timeLimit = parseInt(document.getElementById("timeLimit").value);
-    this.timerDom = document.getElementById("chronometer");
-  }
   match(card1Name, card2Name) {
     return card1Name === card2Name;
     //compare only the card names
   }
 
   chronometer() {
-    console.log(this.timeLimit, this.timerDom)
-    if (this.timeLimit !=0) {this.timer = setInterval(this.countTime, 10)}
-    else{ console.log("time limit can't be 0")};
+    if (this.timeLimit !=0) {this.timer = setInterval(()=>{this.countDown()}, 10)}
+    else{ console.log("time limit can't be 0")}; 
   }
 
-  countTime() {
-    //get starting time
-    console.log(this.timeLimit)
+  countDown() {
     // when time is 0, stoo chronometer and stop game
+    console.log()
+    this.time--;
+    this.timerDom.innerText = formatingTime(this.time) 
+    if(this.time ==0){
+        this.stopGame()
+    }
   }
 
   stopChronometer() {
@@ -46,8 +47,10 @@ class Game2 {
   }
 
   stopGame(){
-    document.querySelector("#game2 .gameArea .dialog").style.display = "flex"
-    document.querySelector("#game2 .gameArea .annoncement").innerHTML = `You finished the game after ${findCats.pickedPairs} try`
+    this.stopChronometer()
+    this.timeUpDialog.style.display = "flex"
+    console.log(this.timeUpDialog.children)
+    this.timeUpDialog.children.item(0).innerText = `You failed to match all the photos in time, Joojoo won't let you pet her :(`
   }
   gameFinished() {
     if(this.rightPairs === this.cards.length / 2){
@@ -59,16 +62,52 @@ class Game2 {
   }
 }
 
-class Game3 extends Game2 {
+class Game3 extends Game2{
   constructor(cards) {
-    super(cards);
+    super(cards)
+    this.score = 0;
+    this.nbShrimps=5;
+    this.rightGuess = 0
     this.blood = 3;
   }
 
-  gameFinished() {
+  isShrimp(card){
+    if(card.getAttribute("data-name").indexOf("Shrimp") !=-1){
+        console.log("Yummy!")
+        this.rightGuess++
+        return true
+    }
+    return false
+  }
+
+/*   levelComplet(){
+    if(this.rightGuess === this.nbShrimps){
+        this.score++
+        return true
+    }
+    return false
+  } */
+
+  gemeEnd() {
     return this.blood === 0;
   }
 }
+
+
+function genericShuffle(arr){
+    if(arr!=undefined){
+        for(let i = arr.length-1; i>0; i--){
+            const cardHolder = arr[i]
+            const newPos = randomIndexOf(i)
+            arr[i] = arr[newPos]
+            arr[newPos] = cardHolder
+        }
+        return arr
+    }
+    return []
+  }
+  
+
 
 //utility functions linked to memory game
 function randomIndexOf(maxIndex) {
