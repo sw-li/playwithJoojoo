@@ -78,7 +78,7 @@ let otherFood = genericShuffle(food).splice(0, 16-nbShrimps)
 let findShrimps = new Game3(shripsForGame.concat(otherFood))
 
 
-
+const checkbox = document.querySelector("#checkbox");
 const playBtn2 = document.querySelector("#game2 .playPause");
 const playBtn3 = document.querySelector("#game3 .playPause");
 const game2Board = document.querySelector("#game2 .gameArea");
@@ -141,24 +141,26 @@ document.onclick = (e) => {
 
 // game2 manipulation
 function game2Start(){
+  //if timed
+  if(findCats.timeLimited == true){
+    findCats.chronometer()
+  }
+  
   game2Board.onclick = (e) => {
     if (e.target.classList.contains("cardFace")) {
       // do the game rules here
       card = e.target.parentNode;
-  
       // check only between two cards
       if(selectedCards.length ===2){
         selectedCards[0].classList.remove("turned")
         selectedCards[1].classList.remove("turned")
         selectedCards = []
       }
-  
       // turn only the unturned ones
       if (!card.classList.contains("turned")) {
         card.classList.add("turned");
         selectedCards.push(card)
       }
-  
       //if we have a pair, check pair
       if(selectedCards.length ===2){
         findCats.pickedPairs ++
@@ -182,10 +184,29 @@ function game2Start(){
 
 
 playBtn2.onclick= ()=>{
-  console.log("play again")
   loadGame2()
   game2Start()
 }
+
+//Use checkbox to decide if the game is timed
+function timeGame(){
+  findCats.timerDomElem = document.querySelector("#chronometer h3")
+  if(checkbox.checked) {
+    findCats.timeLimited = true
+    findCats.timeLimit=  document.querySelector("#timeLimit").value
+    console.log(findCats.timeLimit)
+    findCats.timerDomElem.innerText = formatingTime(findCats.timeLimit*100)
+  }
+  else{
+    clearInterval(findCats.timer)
+    findCats.time= 0;
+    findCats.timeLimited = false;
+    console.log("unchecked")
+    findCats.timerDomElem.innerHTML = "00:00.00"
+  }
+}
+
+
 
 function genericShuffle(arr){
   for(let i = arr.length-1; i>0; i--){
@@ -211,8 +232,4 @@ function loadGame3(){
       </div>`;
   });
   game3Board.innerHTML = html;
-}
-
-function chrometer(){
-
 }

@@ -46,6 +46,15 @@
                     <h1 class="intro title">MATCH JOOJOO</h1>
                     <p class="intro">Match the photos of Joojoo.
                     </p>
+                    <div id="chronometer">
+                        <h3>00:00.0</h3>
+                    </div>
+                    <div id="timeOption" style="text-align:center;">
+                        <input id="checkbox" type="checkbox" onchange="timeGame()">
+                        <label for="checkbox">Time limit:</label>
+                        <input id="timeLimit" type="number" style="width:25px;"  value="30" onchange="timeGame()">
+                        <label for="timeLimit">s</label>
+                    </div>
                     <input class="playPause intro" type="image" src="images/Play.png"
                         style="width: 40px; padding:10px;">
                 </div>
@@ -55,7 +64,6 @@
                     <!-- <h2 class="score">Score:</h2> -->
                     <!-- <p class="life"> &#10084 &#10084 &#10084</p> -->
                     <div class="gameArea memoryGame">
-
                     </div>
                     <div class="dialog">
                         <h1 class="annoncement">You won!</h1>

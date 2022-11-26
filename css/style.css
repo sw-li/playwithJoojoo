@@ -1,8 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,700;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,700;1,500;1,700&family=Orbitron:wght@600&display=swap');
 
 /* Main HTML transition part */
-*{
+h1,h2,p{
     font-family: 'Josefin Sans', sans-serif;
+}
+
+/* h2 is only used for chronometer */
+h3{
+    font-size: 600;
+    font-family: "Orbitron", sans-serif;
+    color: fuchsia;
 }
 
 h1{
@@ -11,12 +18,17 @@ h1{
     color: white;
     margin: 0;
 }
-p{
+p,label,input{
     font-size: 1.25em;
     color: pink;
     margin: 0;
 }
 
+input{
+    background-color: transparent;
+    border: 0;
+    text-align: right;
+}
 
 body {
     background-color: green;
@@ -99,7 +111,6 @@ img {
     justify-content: space-between;
 }
 
-
 .description {
     display: flex;
     flex-direction: column;
@@ -181,7 +192,8 @@ img {
 
 .score {
     margin: 0;
-    color:fuchsia;
+    justify-self: left;
+    color:white;
 }
 
 
@@ -190,6 +202,6 @@ img {
     width: 500px; 
     height: 500px; 
     margin: 15px;
-    
     background-color: antiquewhite;
 }
+
