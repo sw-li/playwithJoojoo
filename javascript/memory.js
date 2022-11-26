@@ -5,11 +5,9 @@ class Game2 {
     this.pickedPairs = 0;
     this.rightPairs = 0;
     this.time = -1;
-    this.timeLimit = 0;
     this.timer = null;
-    this.timeLimited = false;
-    this.finishedInTime = null;
-    this.timerDomElem = null
+    this.timeLimit = null;
+    this.timerDom = null;
   }
   shuffle() {
     if (this.cards == undefined) return undefined;
@@ -22,39 +20,41 @@ class Game2 {
       this.cards[newPos] = cardHolder;
     }
   }
+  init(){
+    this.timeLimit = parseInt(document.getElementById("timeLimit").value);
+    this.timerDom = document.getElementById("chronometer");
+  }
   match(card1Name, card2Name) {
     return card1Name === card2Name;
     //compare only the card names
   }
+
   chronometer() {
-    if (this.timeLimited)
-      this.timer = setInterval(this.countMiliSeconds, 10);
+    console.log(this.timeLimit, this.timerDom)
+    if (this.timeLimit !=0) {this.timer = setInterval(this.countTime, 10)}
+    else{ console.log("time limit can't be 0")};
   }
 
-  countMiliSeconds() {
+  countTime() {
     //get starting time
-    if(this.time=-1) this.time = this.timeLimit
-    console.log(this.time)
-    this.time--;
-    console.log(this.time)
-    if(this.timerDomElem != null) this.timerDomElem.innerText = "xx"
-    if (this.time == 0) {
-        this.stopChrometer;
-    }
-    //console.log(formatingTime(this.time))
+    console.log(this.timeLimit)
+    // when time is 0, stoo chronometer and stop game
   }
 
-  stopChrometer() {
+  stopChronometer() {
     clearInterval(this.timer);
   }
-  stopByTimer(){
 
+  stopGame(){
+    document.querySelector("#game2 .gameArea .dialog").style.display = "flex"
+    document.querySelector("#game2 .gameArea .annoncement").innerHTML = `You finished the game after ${findCats.pickedPairs} try`
   }
   gameFinished() {
     if(this.rightPairs === this.cards.length / 2){
-        this.stopChrometer()
+        this.stopChronometer()
         return true
-    };
+    }
+    //if(this.timeLimit ==0 && this.time ==0) 
     return false
   }
 }

@@ -139,6 +139,14 @@ document.onclick = (e) => {
   }
 };
 
+
+
+playBtn2.onclick= ()=>{
+  loadGame2()
+  game2Start()
+}
+
+
 // game2 manipulation
 function game2Start(){
   //if timed
@@ -174,7 +182,6 @@ function game2Start(){
       document.querySelector(".right").innerHTML = "Right pairs: " + findCats.rightPairs
       // winning condition here. 
       if(findCats.gameFinished()){
-        console.log("You won!")
         game2Board.parentNode.querySelector(".dialog").style.display = "flex"
         game2Board.parentNode.querySelector(".annoncement").innerHTML = `You finished the game after ${findCats.pickedPairs} try`
       }
@@ -182,30 +189,20 @@ function game2Start(){
   };
 }
 
-
-playBtn2.onclick= ()=>{
-  loadGame2()
-  game2Start()
-}
-
 //Use checkbox to decide if the game is timed
 function timeGame(){
-  findCats.timerDomElem = document.querySelector("#chronometer h3")
+  const timer = document.getElementById("chronoLimit")
+  const timeLimit = document.getElementById("timeLimit")
   if(checkbox.checked) {
     findCats.timeLimited = true
-    findCats.timeLimit=  document.querySelector("#timeLimit").value
-    console.log(findCats.timeLimit)
-    findCats.timerDomElem.innerText = formatingTime(findCats.timeLimit*100)
+    timer.innerText = formatingTime(timeLimit.value*100) 
   }
   else{
-    clearInterval(findCats.timer)
-    findCats.time= 0;
-    findCats.timeLimited = false;
-    console.log("unchecked")
-    findCats.timerDomElem.innerHTML = "00:00.00"
+    findCats.stopChronometer()
+    findCats.timeLimited = false
+    timer.innerText = "00:00.00" 
   }
 }
-
 
 
 function genericShuffle(arr){
@@ -217,7 +214,6 @@ function genericShuffle(arr){
 }
 return arr
 }
-
 
 
 function loadGame3(){
