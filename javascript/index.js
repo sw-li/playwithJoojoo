@@ -259,7 +259,7 @@ function game3start() {
   console.log(totalShrimps);
   game3Board.onclick = (e) => {
     if (e.target.classList.contains("cardFace")) {
-      if (selectedCard.false) card = e.target.parentNode;
+      card = e.target.parentNode;
       selectedCards.push(card);
       // turn only the unturned ones
       if (!card.classList.contains("turned")) {
