@@ -260,13 +260,34 @@ function game3start() {
   game3Board.onclick = (e) => {
     if (e.target.classList.contains("cardFace")) {
       card = e.target.parentNode;
-      selectedCards.push(card);
       // turn only the unturned ones
       if (!card.classList.contains("turned")) {
+
+        //turn back the wrong card
+        if(selectedCards.length ===1) {
+          selectedCards[0].classList.remove("turned")
+          selectedCards =[]
+        }
+
+        selectedCards.push(card);
         card.classList.add("turned");
+  
       }
-      //if the card is shrimp, we keep it turned
-      if (findShrimps(card)) {
+      
+      if (findShrimps.isShrimp(card)) {
+        //if the card is shrimp, we keep it turned
+        //clean the holder array and add one to right guess
+        selectedCards=[]
+        findShrimps.rightGuess++
+        if(findShrimps.levelComplet()){
+          //fire up the next level dialog
+          //shuffle the cards (eventually change the cards collection of the game)
+          //speed up the memorizing time
+
+        }
+      }else{
+        //if the card is not shrimp, we lose one blood
+        // fire up a warning anoncement that you are not good
       }
     }
   };
@@ -280,3 +301,4 @@ function flipAllcards() {
     allCards.forEach((card) => card.classList.add("turned"));
   }
 }
+

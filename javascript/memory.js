@@ -66,6 +66,7 @@ class Game3 extends Game2{
   constructor(cards) {
     super(cards)
     this.score = 0;
+    this.timeToMemorize = 3000;
     this.nbShrimps=5;
     this.rightGuess = 0
     this.blood = 3;
@@ -80,13 +81,13 @@ class Game3 extends Game2{
     return false
   }
 
-/*   levelComplet(){
+  levelComplet(){
     if(this.rightGuess === this.nbShrimps){
         this.score++
         return true
     }
     return false
-  } */
+  }
 
   gemeEnd() {
     return this.blood === 0;
