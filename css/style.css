@@ -91,13 +91,18 @@ body {
 
 .imgContainers{
     height: 300px;
-
+    width: 300px;
+    border-radius: 100px 100px/  150px  150px;
+    overflow: hidden;
+    object-fit: cover;
 }
 
 .gameEntry{
-    height: inherit;
-   object-fit: cover;
-   padding: 0;
+    height: auto;
+    width: inherit;
+    background-size: cover;
+    background-position: center;
+    padding: 0;
 }
 
 input {

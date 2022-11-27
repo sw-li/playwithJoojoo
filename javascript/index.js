@@ -252,7 +252,7 @@ function loadGame3() {
 
 //heart emoji in js
 var heart = "\u2665";
-var delaycard 
+var delayed 
 playBtn3.onclick = () => {
   findShrimps.reinit();
   loadGame3();
@@ -266,7 +266,9 @@ levelUpBtn3.onclick = () =>{
 
 function game3start() {
   //show the card for 3 seconds before turning
-  flipAllcardsTwice();
+  clearTimeout(delayed)
+  flipAllcards()
+  delayed = setTimeout(flipAllcards,3000)
   // for now it's 5 shrimps fixed. 
  /*  let totalShrimps = 0;
   document.querySelectorAll(".card").forEach((card) => {
@@ -309,9 +311,7 @@ function game3start() {
         //fire up a warning anoncement that you are not good
         //do it later, it's not that important
       }
-      if (findShrimps.gameEnd()) {
-        //blood finished, get the statistics
-      }
+      findShrimps.gameEnd()
     }
   };
 }
@@ -324,13 +324,5 @@ function flipAllcards() {
     allCards.forEach((card) => card.classList.add("turned"));
   }
 }
-
-function flipAllcardsTwice(){
-  if(typeof(delaycard)==="number") clearInterval(delaycard)
-  flipAllcards()
-  console.log(typeof delayed)
-  delayed = setTimeout(flipAllcards,3000)
-}
-
 
 
