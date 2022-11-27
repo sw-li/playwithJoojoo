@@ -96,6 +96,9 @@ const playBtn2 = document.querySelector("#game2 .playPause");
 const playBtn3 = document.querySelector("#game3 .playPause");
 const game2Board = document.querySelector("#game2 .gameArea");
 const game3Board = document.querySelector("#game3 .gameArea");
+const levelUpBtn3 = document.getElementById("levelUpBtn")
+const game3replayBtn = document.getElementById("lostAllBloodBtn")
+
 
 window.onload = (e) => {
   gameDivs.map((game) => (game.style.display = "none"));
@@ -157,10 +160,7 @@ playBtn2.onclick = () => {
   game2Start();
 };
 
-playBtn3.onclick = () => {
-  loadGame3();
-  game3start();
-};
+
 // game2 manipulation
 function game2Start() {
   //if timed
@@ -205,14 +205,16 @@ function game2Start() {
       if (findCats.gameFinished()) {
         if (findCats.timeLimited) {
           findCats.winingDialog.style.display = "flex";
-          findCats.winingDialog.querySelector("annoncement").innerHTML = `
-        You finished the game after ${findCats.pickedPairs} try! Joojoo graciously allows some petting!
+          findCats.winingDialog.querySelector(".annoncement").innerHTML = `
+        You finished the game in ${
+          findCats.time / 100
+        } seconds! Joojoo graciously allows some petting!
         `;
         } else {
           findCats.winingDialog.style.display = "flex";
-          findCats.winingDialog.querySelector("annoncement").innerHTML = `
-        You finished the game in ${findCats.time/100} seconds! Joojoo graciously allows some petting!
-        `;
+          findCats.winingDialog.querySelector(".annoncement").innerHTML = `
+          You finished the game after ${findCats.pickedPairs} try! Joojoo graciously allows some petting!
+          `;
         }
       }
     }
@@ -248,46 +250,67 @@ function loadGame3() {
   game3Board.innerHTML = html;
 }
 
+//heart emoji in js
+var heart = "\u2665";
+var delaycard 
+playBtn3.onclick = () => {
+  findShrimps.reinit();
+  loadGame3();
+  game3start();
+};
+
+levelUpBtn3.onclick = () =>{
+  loadGame3()
+  game3start()
+}
+
 function game3start() {
   //show the card for 3 seconds before turning
-  flipAllcards();
-  setTimeout(flipAllcards, 3000);
-  let totalShrimps = 0;
+  flipAllcardsTwice();
+  // for now it's 5 shrimps fixed. 
+ /*  let totalShrimps = 0;
   document.querySelectorAll(".card").forEach((card) => {
     if (card.getAttribute("data-name").indexOf("Shrimp") != -1) totalShrimps++;
-  });
-  console.log(totalShrimps);
+  }); */
+
   game3Board.onclick = (e) => {
     if (e.target.classList.contains("cardFace")) {
       card = e.target.parentNode;
+      console;
       // turn only the unturned ones
       if (!card.classList.contains("turned")) {
-
         //turn back the wrong card
-        if(selectedCards.length ===1) {
-          selectedCards[0].classList.remove("turned")
-          selectedCards =[]
+        if (selectedCards.length === 1) {
+          selectedCards[0].classList.remove("turned");
+          selectedCards = [];
         }
-
+        //temporarly save the card to selectedCards array so that
+        //we can turn it next step instead of right away
         selectedCards.push(card);
         card.classList.add("turned");
-  
       }
-      
+
       if (findShrimps.isShrimp(card)) {
         //if the card is shrimp, we keep it turned
         //clean the holder array and add one to right guess
-        selectedCards=[]
-        findShrimps.rightGuess++
-        if(findShrimps.levelComplet()){
+        selectedCards = [];
+        if (findShrimps.levelComplet()) {
           //fire up the next level dialog
           //shuffle the cards (eventually change the cards collection of the game)
           //speed up the memorizing time
-
         }
-      }else{
+      } else {
         //if the card is not shrimp, we lose one blood
-        // fire up a warning anoncement that you are not good
+        findShrimps.blood--;
+        console.log(findShrimps.bloodDom);
+        findShrimps.bloodDom.innerText = heart.repeat(
+          findShrimps.blood
+        );
+        //fire up a warning anoncement that you are not good
+        //do it later, it's not that important
+      }
+      if (findShrimps.gameEnd()) {
+        //blood finished, get the statistics
       }
     }
   };
@@ -301,4 +324,13 @@ function flipAllcards() {
     allCards.forEach((card) => card.classList.add("turned"));
   }
 }
+
+function flipAllcardsTwice(){
+  if(typeof(delaycard)==="number") clearInterval(delaycard)
+  flipAllcards()
+  console.log(typeof delayed)
+  delayed = setTimeout(flipAllcards,3000)
+}
+
+
 

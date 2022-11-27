@@ -70,6 +70,10 @@ class Game3 extends Game2{
     this.nbShrimps=5;
     this.rightGuess = 0
     this.blood = 3;
+    this.bloodDom = document.getElementById("blood")
+    this.levelUpDialog = document.getElementById("levelUp")
+    this.bloodEndDialog = document.getElementById("lostAllBlood")
+    this.levelDom=document.querySelector("#game3 .gameboard .score")
   }
 
   isShrimp(card){
@@ -81,16 +85,43 @@ class Game3 extends Game2{
     return false
   }
 
+  reinit(){
+    this.score = 0;
+    this.timeToMemorize = 3000;
+    this.nbShrimps=5;
+    this.rightGuess = 0
+    this.blood = 3;
+  }
+
   levelComplet(){
+    console.log(this.rightGuess, this.nbShrimps,this.score,this.levelDom)
     if(this.rightGuess === this.nbShrimps){
         this.score++
+        this.levelDom.innerText = this.score
+        console.log("level up!")
+        // fire up the levelUp dialog
+        this.levelUpDialog.style.display = "flex"
         return true
     }
     return false
   }
 
-  gemeEnd() {
-    return this.blood === 0;
+  gameEnd() {
+    if(this.blood === 0) {
+      //fire up the end game dialog
+      if(this.score === 0){
+        this.bloodEndDialog.querySelector(".annoncement").innerHTML = "You are dead to Joojoo. Hiss!"
+      }else if(this.score<3){
+        this.bloodEndDialog.querySelector(".annoncement").innerHTML = "Ok, with this little offering, you may only kiss Joojoo's head!"
+      }else if(this.score<6){
+        this.bloodEndDialog.querySelector(".annoncement").innerHTML = "Not bad not bad, you may gently caresse Joojoo"
+      }else{
+        this.bloodEndDialog.querySelector(".annoncement").innerHTML = "Joojoo declares that you are her first class payson, you may cuddle the queen!"
+      }
+      this.bloodEndDialog.style.display = "flex"
+      return true
+    }
+    return false
   }
 }
 

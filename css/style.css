@@ -30,6 +30,11 @@ input{
     text-align: right;
 }
 
+.playPause {
+    width: 80px; 
+    padding:10px;
+}
+
 body {
     background-color: green;
 }
