@@ -92,7 +92,8 @@ body {
 .imgContainers{
     height: 300px;
     width: 300px;
-    border-radius: 100px 100px/  150px  150px;
+    background-color: rgba(145, 224, 191, 0.837);
+    border-radius: 150px;
     overflow: hidden;
     object-fit: cover;
 }
@@ -225,6 +226,6 @@ img {
     width: 500px; 
     height: 500px; 
     margin: 15px;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
 }
 
