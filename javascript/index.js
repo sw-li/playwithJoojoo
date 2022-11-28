@@ -326,3 +326,30 @@ function flipAllcards() {
 }
 
 
+// game three 
+/** @type {HTMLCanvasElement} */
+const canvas = document.querySelector("canvas")
+const ctx= canvas.getContext("2d")
+ctx.fillRect(10,10,100,100)
+
+
+/* 
+const game1Board = {
+  obstacles:[],
+  player:null,
+}
+const foodArr = []
+const obsImg = new Image()
+obsImg.src = "/images/icons8-back-arrow-64.png"
+console.log(obsImg) */
+//purely for testing, maybe later it will be completely replace by a canvas element. 
+
+
+/* const avatarImg = document.getElementById('avatar');
+
+const onMouseMove = (e) =>{
+  avatarImg.style.left = e.clientX + 'px';
+  avatarImg.style.top = e.clientY + 'px';
+  console.log(e.clientX, e.clientY)
+}
+canvas.addEventListener('mousemove', onMouseMove); */
