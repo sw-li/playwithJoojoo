@@ -108,6 +108,8 @@ window.onload = (e) => {
 
   let cardNodes = game2Board.querySelectorAll(".card");
   let cardsElemArr = [...cardNodes];
+  let audio = document.querySelector("audio")
+  audio.volume = 0.05
 };
 
 function loadGame2() {
@@ -258,6 +260,12 @@ playBtn3.onclick = () => {
   loadGame3();
   game3start();
 };
+game3replayBtn.onclick = () => {
+  findShrimps.reinit();
+  loadGame3();
+  game3start();
+};
+
 
 levelUpBtn3.onclick = () =>{
   loadGame3()
@@ -266,9 +274,8 @@ levelUpBtn3.onclick = () =>{
 
 function game3start() {
   //show the card for 3 seconds before turning
-  clearTimeout(delayed)
   flipAllcards()
-  delayed = setTimeout(flipAllcards,3000)
+  setTimeout(flipAllcards,3000)
   // for now it's 5 shrimps fixed. 
  /*  let totalShrimps = 0;
   document.querySelectorAll(".card").forEach((card) => {
@@ -330,26 +337,25 @@ function flipAllcards() {
 /** @type {HTMLCanvasElement} */
 const canvas = document.querySelector("canvas")
 const ctx= canvas.getContext("2d")
-ctx.fillRect(10,10,100,100)
 
 
-/* 
 const game1Board = {
   obstacles:[],
   player:null,
 }
 const foodArr = []
-const obsImg = new Image()
-obsImg.src = "/images/icons8-back-arrow-64.png"
-console.log(obsImg) */
+let obsImg = new Image()
+obsImg.src = "images/Play.png"
+console.log(obsImg)
 //purely for testing, maybe later it will be completely replace by a canvas element. 
+ctx.scale(1,1)
+ctx.drawImage(obsImg,100,100,20,20)
 
-
-/* const avatarImg = document.getElementById('avatar');
+const avatarImg = document.getElementById('avatar');
 
 const onMouseMove = (e) =>{
   avatarImg.style.left = e.clientX + 'px';
   avatarImg.style.top = e.clientY + 'px';
   console.log(e.clientX, e.clientY)
 }
-canvas.addEventListener('mousemove', onMouseMove); */
+canvas.addEventListener('mousemove', onMouseMove);

@@ -1,12 +1,14 @@
-/* 
+
  class Composant {
-    constructor(img,x,y,xSpeed, ySpeed,speedFacter){
+    constructor(img,x,y,xSpeed, ySpeed,speedFacter,size,isEnemie){
         this.img = img
         this.x = x
         this.y = y
         this.xSpeed = xSpeed
         this.ySpeed = ySpeed
         this.speedFacter = speedFacter
+        this.size = size
+        this.isEnemie = isEnemie
         // use the canvas contexte as a property for later use
     }
     newPos(){
@@ -15,6 +17,6 @@
     }
     update(){
       let ctx = document.querySelector("#game1 .gameArea.canvasGame").getContext("2d")
-      ctx.drawImage(this.img, this.x, this.y)
+      ctx.fillRect(this.x, this.y,25,25)
     }
-  } */
+  }

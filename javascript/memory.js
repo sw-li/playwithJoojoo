@@ -87,17 +87,17 @@ class Game3 extends Game2{
 
   reinit(){
     this.score = 0;
-    this.timeToMemorize = 3000;
+    //this.timeToMemorize = 3000;
     this.nbShrimps=5;
     this.rightGuess = 0
     this.blood = 3;
+    this.bloodDom.innerText = "\u2665 \u2665 \u2665"
   }
 
   levelComplet(){
-    console.log(this.rightGuess, this.nbShrimps,this.score,this.levelDom)
     if(this.rightGuess === this.nbShrimps){
         this.score++
-        this.levelDom.innerText = this.score
+        this.levelDom.innerText = "Level:" + (this.score+1)
         console.log("level up!")
         // fire up the levelUp dialog
         this.levelUpDialog.style.display = "flex"

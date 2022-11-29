@@ -11,6 +11,31 @@ h3{
     font-family: "Orbitron", sans-serif;
     color: fuchsia;
 }
+footer{
+    display: inline-block;
+    flex-direction: row;
+}
+
+.credits{
+    float: right;
+    align-self: flex-end;
+
+}
+.credits p{
+    justify-self: end;
+    font-size: 5px;
+    padding: 10px;
+    color: gray;
+}
+
+audio{
+    position: absolute;
+    right: 100px;
+    bottom: 50px;
+}
+a{
+    color: gray;
+}
 
 h1{
     font-size: 1.5em;
