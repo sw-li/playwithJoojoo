@@ -1,6 +1,6 @@
 
  class Composant {
-    constructor(img,x,y,xSpeed, ySpeed,speedFacter,size,isEnemie){
+    constructor(img,x,y,xSpeed,ySpeed,speedFacter,size,isEnemie){
         this.img = img
         this.x = x
         this.y = y
