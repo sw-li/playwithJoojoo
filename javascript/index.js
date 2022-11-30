@@ -96,9 +96,9 @@ const playBtn2 = document.querySelector("#game2 .playPause");
 const playBtn3 = document.querySelector("#game3 .playPause");
 const game2Board = document.querySelector("#game2 .gameArea");
 const game3Board = document.querySelector("#game3 .gameArea");
-const levelUpBtn3 = document.getElementById("levelUpBtn")
+const levelUpBtn = document.getElementById("levelUpBtn")
 const game3replayBtn = document.getElementById("lostAllBloodBtn")
-
+const game3HitMsg = document.getElementById("game3HitMsg")
 
 window.onload = (e) => {
   gameDivs.map((game) => (game.style.display = "none"));
@@ -112,25 +112,6 @@ window.onload = (e) => {
   audio.volume = 0.05
 };
 
-function loadGame2() {
-  findCats.shuffle();
-  findCats.pickedPairs = 0;
-  findCats.rightPairs = 0;
-  document.querySelector(".picked").innerHTML =
-    "Nomber of tentation: " + findCats.pickedPairs;
-  document.querySelector(".right").innerHTML =
-    "Right pairs: " + findCats.rightPairs;
-  let html = "";
-  game2Board.innerHTML = "";
-  findCats.cards.forEach((cat) => {
-    html += ` 
-      <div class="card" data-name=${cat.name}>
-      <div class="cardFace back" ></div>
-      <div class="cardFace front" style="background-image: url(/images/cats/${cat.img});"> </div >
-      </div>`;
-  });
-  game2Board.innerHTML = html;
-}
 
 //main page transition on click
 document.onclick = (e) => {
@@ -162,6 +143,26 @@ playBtn2.onclick = () => {
   game2Start();
 };
 
+
+function loadGame2() {
+  findCats.shuffle();
+  findCats.pickedPairs = 0;
+  findCats.rightPairs = 0;
+  document.querySelector(".picked").innerHTML =
+    "Nomber of tentation: " + findCats.pickedPairs;
+  document.querySelector(".right").innerHTML =
+    "Right pairs: " + findCats.rightPairs;
+  let html = "";
+  game2Board.innerHTML = "";
+  findCats.cards.forEach((cat) => {
+    html += ` 
+      <div class="card" data-name=${cat.name}>
+      <div class="cardFace back" ></div>
+      <div class="cardFace front" style="background-image: url(/images/cats/${cat.img});"> </div >
+      </div>`;
+  });
+  game2Board.innerHTML = html;
+}
 
 // game2 manipulation
 function game2Start() {
@@ -254,35 +255,33 @@ function loadGame3() {
 
 //heart emoji in js
 var heart = "\u2665";
+var emptyHeart = "\u2661";
 var delayed 
 playBtn3.onclick = () => {
   findShrimps.reinit();
-  loadGame3();
   game3start();
+  loadGame3();
+  flipAllcardsTwice(findShrimps.timeToMemorize)
 };
 game3replayBtn.onclick = () => {
   findShrimps.reinit();
   loadGame3();
-  game3start();
+  flipAllcardsTwice(findShrimps.timeToMemorize)
 };
 
-const game3HitMsg = document.getElementById("game3HitMsg")
-
-levelUpBtn3.onclick = () =>{
-  loadGame3()
-  game3start()
+levelUpBtn.onclick = () =>{
+  findShrimps.rightGuess =0
+  findShrimps.shuffle()
+  loadGame3();
+  flipAllcardsTwice(findShrimps.timeToMemorize)
 }
 
 function game3start() {
-  //show the card for 3 seconds before turning
-  flipAllcards()
-  setTimeout(flipAllcards,3000)
   // for now it's 5 shrimps fixed. 
  /*  let totalShrimps = 0;
   document.querySelectorAll(".card").forEach((card) => {
     if (card.getAttribute("data-name").indexOf("Shrimp") != -1) totalShrimps++;
   }); */
-
   game3Board.onclick = (e) => {
     if (e.target.classList.contains("cardFace")) {
       card = e.target.parentNode;
@@ -314,12 +313,13 @@ function game3start() {
         findShrimps.blood--;
         if(findShrimps.blood == 2) game3HitMsg.innerText = "-1 Hissss, what's this?"
         if(findShrimps.blood == 1) game3HitMsg.innerText = "-1 Last call, no shrimps no love!"
+        if(findShrimps.blood == 0) game3HitMsg.innerText = "-1 Love is overated"
         game3HitMsg.style.opacity =1
         fadeOutEffect(game3HitMsg)
 
         console.log(findShrimps.bloodDom);
         
-        findShrimps.bloodDom.innerText = heart.repeat(
+        findShrimps.bloodDom.innerText = emptyHeart.repeat(3-findShrimps.blood) + heart.repeat(
           findShrimps.blood
         );
         //fire up a warning anoncement that you are not good
@@ -330,15 +330,12 @@ function game3start() {
   };
 }
 
-function flipAllcards() {
+function flipAllcardsTwice(timeSpan) {
   const allCards = document.querySelectorAll(".card");
-  if (allCards.item(1).classList.contains("turned")) {
-    allCards.forEach((card) => card.classList.remove("turned"));
-  } else {
-    allCards.forEach((card) => card.classList.add("turned"));
-  }
+  allCards.forEach((card) => card.classList.add("turned"));
+  console.log(timeSpan)
+  setTimeout(function(){allCards.forEach((card) => card.classList.remove("turned"))}, timeSpan)
 }
-
 
 // game one 
 /** @type {HTMLCanvasElement} */

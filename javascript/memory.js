@@ -31,9 +31,8 @@ class Game2 {
     if (this.timeLimit !=0) {this.timer = setInterval(()=>{this.countDown()}, 10)}
     else{ console.log("time limit can't be 0")}; 
   }
-
   countDown() {
-    // when time is 0, stoo chronometer and stop game
+    // when time is 0, stop chronometer and stop game
     console.log()
     this.time--;
     this.timerDom.innerText = formatingTime(this.time) 
@@ -86,21 +85,29 @@ class Game3 extends Game2{
   }
 
   reinit(){
+    this.shuffle();
     this.score = 0;
-    //this.timeToMemorize = 3000;
+    this.timeToMemorize = 3000;
     this.nbShrimps=5;
     this.rightGuess = 0
     this.blood = 3;
+    this.levelDom.innerText = "Level: 1"
     this.bloodDom.innerText = "\u2665 \u2665 \u2665"
+    const allCards = document.querySelectorAll(".card");
+    allCards.forEach((card) => {
+      if(card.classList.contains("turned")) card.classList.remove("turned")
+      })
   }
 
   levelComplet(){
     if(this.rightGuess === this.nbShrimps){
         this.score++
+        if(this.timeToMemorize>1500) this.timeToMemorize -=300
         this.levelDom.innerText = "Level:" + (this.score+1)
         console.log("level up!")
         // fire up the levelUp dialog
         this.levelUpDialog.style.display = "flex"
+        this.levelUpDialog.querySelector(".annoncement").innerText = `Meow! You've finished ${this.score} leves! Bravo!`
         return true
     }
     return false
@@ -110,13 +117,13 @@ class Game3 extends Game2{
     if(this.blood === 0) {
       //fire up the end game dialog
       if(this.score === 0){
-        this.bloodEndDialog.querySelector(".annoncement").innerHTML = "You are dead to Joojoo. Hiss!"
+        this.bloodEndDialog.querySelector(".annoncement").innerHTML = "Hiss! You are dead to Joojoo!"
       }else if(this.score<3){
         this.bloodEndDialog.querySelector(".annoncement").innerHTML = "Ok, with this little offering, you may only kiss Joojoo's head!"
       }else if(this.score<6){
-        this.bloodEndDialog.querySelector(".annoncement").innerHTML = "Not bad not bad, you may gently caresse Joojoo"
+        this.bloodEndDialog.querySelector(".annoncement").innerHTML = "Not bad not bad, you may gently pet Joojoo's back"
       }else{
-        this.bloodEndDialog.querySelector(".annoncement").innerHTML = "Joojoo declares that you are her first class payson, you may cuddle the queen!"
+        this.bloodEndDialog.querySelector(".annoncement").innerHTML = "Joojoo declares that you are her first class peasant, you may cuddle the queen!"
       }
       this.bloodEndDialog.style.display = "flex"
       return true
@@ -154,4 +161,16 @@ function formatingTime(time) {
 }
 function computeTwoDigitNumber(value) {
   return `0${value}`.slice(-2);
+}
+function fadeOutEffect(fadeTarget) {
+  let fadeEffect = setInterval(function () {
+      if (!fadeTarget.style.opacity) {
+          fadeTarget.style.opacity = 1;
+      }
+      if (fadeTarget.style.opacity > 0) {
+          fadeTarget.style.opacity -= 0.1;
+      } else {
+          clearInterval(fadeEffect);
+      }
+  }, 1000);
 }

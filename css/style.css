@@ -84,11 +84,12 @@ body {
 
 .annoncement{
     font-weight: 900;
+    text-align: center;
 }
    
 
 .win{
-    color: greenyellow;
+    color: green;
 }
 
 .lose{
