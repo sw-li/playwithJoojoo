@@ -32,8 +32,8 @@ audio{
     position: absolute;
     width: 150px;
     height: 50px;
-    right: 100px;
-    bottom: 10px;
+    left: 55px;
+    top:810px;
 }
 a{
     color: gray;

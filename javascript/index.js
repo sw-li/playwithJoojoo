@@ -266,6 +266,7 @@ game3replayBtn.onclick = () => {
   game3start();
 };
 
+const game3HitMsg = document.getElementById("game3HitMsg")
 
 levelUpBtn3.onclick = () =>{
   loadGame3()
@@ -311,7 +312,13 @@ function game3start() {
       } else {
         //if the card is not shrimp, we lose one blood
         findShrimps.blood--;
+        if(findShrimps.blood == 2) game3HitMsg.innerText = "-1 Hissss, what's this?"
+        if(findShrimps.blood == 1) game3HitMsg.innerText = "-1 Last call, no shrimps no love!"
+        game3HitMsg.style.opacity =1
+        fadeOutEffect(game3HitMsg)
+
         console.log(findShrimps.bloodDom);
+        
         findShrimps.bloodDom.innerText = heart.repeat(
           findShrimps.blood
         );
@@ -333,7 +340,7 @@ function flipAllcards() {
 }
 
 
-// game three 
+// game one 
 /** @type {HTMLCanvasElement} */
 const canvas = document.querySelector("canvas")
 const ctx= canvas.getContext("2d")
