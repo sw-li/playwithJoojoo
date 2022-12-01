@@ -110,7 +110,7 @@ window.onload = (e) => {
   let cardsElemArr = [...cardNodes];
   let audio = document.querySelector("audio")
   audio.volume = 0.05
-
+  
 
    //try to load image src first 
   //composants.forEach(element => element.img.src = element.path);
@@ -124,7 +124,8 @@ window.onload = (e) => {
   }
   
     //load click action to start game
-  playBtn1.onclick = ()=>{
+    playBtn1.onclick = ()=>{
+    gameStatusDom.blood.innerText = heart.repeat(3)
     console.log("Game started")
     playGame1()
   }
@@ -387,13 +388,7 @@ const gameObj = {
   },
   stop: function(){
     // reinitialize everything
-    clearInterval(this.interval)
-    ctx.fillStyle = "red"
-    ctx.fillStyle = "red"
-    ctx.font = "50px Arial"
-    ctx.textAlign = "center"
-    ctx.textBaseline = "middle"
-    ctx.fillText("GAME OVER", 250, 350)
+    this.reinit()
   },
   reinit: function(){
     this.frames = 0
@@ -403,8 +398,13 @@ const gameObj = {
     this.clear()
   },
   endCheck:function(){
-    return this.blood ===0
+    return this.blood===0
   },
+}
+const game1OverDialog = document.getElementById("game1OverDialog")
+const gameStatusDom= {
+  score: document.querySelector("#game1 .score"),
+  blood: document.querySelector("#game1 .life")
 }
 
 function updateGame1(){
@@ -430,9 +430,9 @@ function updateGame1(){
   }
 
   if(gameObj.endCheck()){
-  console.log("Game Over")
+    game1OverDialog.querySelector(".annoncement").innerHTML = "Oups, GAME OVER!"
   }
-  //updateScore()
+
 }
 
 function resetGame1(){
@@ -457,9 +457,16 @@ function checkColision(){
     if(player.colideWith(pops[i])){
       switch(pops[i].color){
         case "red":
-          gameObj.blood--
+          if(gameObj.blood>0){
+            gameObj.blood--
+            gameStatusDom.blood.innerText = emptyHeart.repeat(3-gameObj.blood) + heart.repeat(gameObj.blood)
+            if(gameObj.endCheck()){
+              game1OverDialog.style.display = "flex"
+            }
+          }
         case "green":
           gameObj.score++
+          gameStatusDom.score.innerText = "Score: " + gameObj.score
       }
       pops.splice(i,1)
     }else{

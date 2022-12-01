@@ -30,13 +30,13 @@
                 <div class="gameboard">
                     <p id="game1HitMsg" style="position: relative; left:0px; top:70px; color: red; font-weight: bold;"></p>
                     <h2 class="score">Score:</h2>
-                    <p class="life"> &#10084 &#10084 &#10084</p>
+                    <p class="life"> - </p>
                     <div id="playerImg">
                         <img id="avatar" src="./images/Joojoo avatar.png" alt="player image">
                      </div>
                     <canvas class="gameArea canvasGame" height="500px" width="500px"></canvas>
-                    <div class="dialog">
-                        <h1 class="annoncement">You won!</h1>
+                    <div class="dialog" id="game1OverDialog" >
+                        <h1 class="annoncement">-</h1>
                         <input class="annoncementBtn" type="image" src="./images/Reload (1).png">
                     </div>
                 </div>
@@ -124,7 +124,6 @@
     <script src="./javascript/memory.js"></script>
     <script src="./javascript/foods.js"></script>
     <script src="./javascript/index.js"></script>
-    <script src="./javascript/game1.js"></script>
 </body>
 
 </html>
