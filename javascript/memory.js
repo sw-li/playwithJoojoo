@@ -132,7 +132,6 @@ class Game3 extends Game2{
   }
 }
 
-
 function genericShuffle(arr){
     if(arr!=undefined){
         for(let i = arr.length-1; i>0; i--){
@@ -146,8 +145,6 @@ function genericShuffle(arr){
     return []
   }
   
-
-
 //utility functions linked to memory game
 function randomIndexOf(maxIndex) {
   return Math.floor(Math.random() * maxIndex);
