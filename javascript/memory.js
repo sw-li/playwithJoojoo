@@ -103,7 +103,7 @@ class Game3 extends Game2{
     if(this.rightGuess === this.nbShrimps){
         this.score++
         if(this.timeToMemorize>1500) this.timeToMemorize -=300
-        this.levelDom.innerText = "Level:" + (this.score+1)
+        this.levelDom.innerText = "Level: " + (this.score+1)
         console.log("level up!")
         // fire up the levelUp dialog
         this.levelUpDialog.style.display = "flex"

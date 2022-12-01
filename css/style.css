@@ -3,6 +3,7 @@
 /* Main HTML transition part */
 h1,h2,p{
     font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
 }
 
 /* h2 is only used for chronometer */
@@ -47,23 +48,17 @@ h1{
 }
 p,label,input{
     font-size: 1.25em;
-    color: pink;
+    color: white;
     margin: 0;
 }
 
 input{
     background-color: transparent;
     border: 0;
-    text-align: right;
-}
-
-.playPause {
-    width: 80px; 
-    padding:10px;
 }
 
 body {
-    background-color: green;
+    background-color: rgba(0, 128, 60, 0.632);
 }
 
 .dialog{
@@ -84,7 +79,6 @@ body {
 
 .annoncement{
     font-weight: 900;
-    text-align: center;
 }
    
 
@@ -99,7 +93,7 @@ body {
 #main {
     border-radius: 15px;
     margin: 50px;
-    background-image: url("/images/catheader.jpg");
+    background-image: url("/images/background.jpg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -120,7 +114,7 @@ body {
 .imgContainers{
     height: 300px;
     width: 300px;
-    background-color: rgba(145, 224, 191, 0.837);
+    background-color: rgba(145, 224, 191, 0.309);
     border-radius: 150px;
     overflow: hidden;
     object-fit: cover;
@@ -167,13 +161,22 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: rgb(31,221,208);
+    background: linear-gradient( rgba(31,221,208,0.5) 50%, rgba(0,212,255,0) 100%);
+    border-radius: 15px;
 }
 .intro{
     padding: 20px;
+    width: 350px;
+}
+
+.playPause {
+    width: 80px; 
+    padding:10px;
 }
 .gameboard {
     border-radius: 15px;
-    margin: 0 50px;
+    margin: 0 0 0 50px;
     width: 530px;
     height: 600px;
     background-color: rgba(75, 146, 116, 0.7);
