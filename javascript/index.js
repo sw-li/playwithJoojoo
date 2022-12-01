@@ -110,6 +110,31 @@ window.onload = (e) => {
   let cardsElemArr = [...cardNodes];
   let audio = document.querySelector("audio")
   audio.volume = 0.05
+
+
+   //try to load image src first 
+  //composants.forEach(element => element.img.src = element.path);
+
+  const onMouseMove = (e) =>{
+    let rect = canvas.getBoundingClientRect()
+    player.x = e.clientX - rect.left - Math.floor(player.w/2)-2;
+    player.y = e.clientY - rect.top - Math.floor(player.h/2)-2; 
+    joojooImg.style.left = e.clientX+ 'px';
+    joojooImg.style.top = e.clientY+ 'px'; 
+  }
+  
+    //load click action to start game
+  playBtn1.onclick = ()=>{
+    console.log("Game started")
+    playGame1()
+  }
+
+  function playGame1(){
+    canvas.addEventListener('mousemove', onMouseMove); 
+    gameObj.clear()
+    gameObj.interval = setInterval(updateGame1, 20)
+  }
+
 };
 
 
@@ -341,25 +366,105 @@ function flipAllcardsTwice(timeSpan) {
 /** @type {HTMLCanvasElement} */
 const canvas = document.querySelector("canvas")
 const ctx= canvas.getContext("2d")
-
-
-const game1Board = {
-  obstacles:[],
-  player:null,
+const playBtn1 = document.querySelector("#game1 .playPause");
+let pops = []
+const joojooImg = document.getElementById("playerImg")
+const player = new Composant(0,0,"transparent")
+player.w = 30
+player.h = 30
+player.speedX = 0
+player.speedY = 0
+const gameObj = {
+  frames: 0 ,
+  interval: undefined,
+  score:0,
+  blood:3,
+  hitMsg:"-1 blood",
+  speedUp:0,
+  cunter:0,
+  clear: function(){
+    ctx.clearRect(0,0,500,500)
+  },
+  stop: function(){
+    // reinitialize everything
+    clearInterval(this.interval)
+    ctx.fillStyle = "red"
+    ctx.fillStyle = "red"
+    ctx.font = "50px Arial"
+    ctx.textAlign = "center"
+    ctx.textBaseline = "middle"
+    ctx.fillText("GAME OVER", 250, 350)
+  },
+  reinit: function(){
+    this.frames = 0
+    clearInterval(this.interval)
+    this.score=0
+    this.blood=3
+    this.clear()
+  },
+  endCheck:function(){
+    return this.blood ===0
+  },
 }
-const foodArr = []
-let obsImg = new Image()
-obsImg.src = "images/Play.png"
-console.log(obsImg)
-//purely for testing, maybe later it will be completely replace by a canvas element. 
-ctx.scale(1,1)
-ctx.drawImage(obsImg,100,100,20,20)
 
-const avatarImg = document.getElementById('avatar');
+function updateGame1(){
+  gameObj.clear()
+  gameObj.frames++
+  if(pops.length>0) pops.forEach(compo => compo.update())
+  player.update()
+  checkColision()
+  if(gameObj.frames %20 ===0){
+    pops.push(new Composant(randomX(), 0, redOrGreen(), randomSpeedFactor() + gameObj.speedUp));
+  }
+  // garbage collecting
+  for(let i = 0; i<pops.length; i++){
+    if(pops[i].y > 550){
+      pops.splice(i,1)
+      gameObj.cunter ++
+    }
+  }
 
-const onMouseMove = (e) =>{
-  avatarImg.style.left = e.clientX + 'px';
-  avatarImg.style.top = e.clientY + 'px';
-  console.log(e.clientX, e.clientY)
+  if(gameObj.cunter ===50){
+    gameObj.cunter =0
+    gameObj.speedUp += 0.1
+  }
+
+  if(gameObj.endCheck()){
+  console.log("Game Over")
+  }
+  //updateScore()
 }
-canvas.addEventListener('mousemove', onMouseMove);
+
+function resetGame1(){
+  pops = []
+  gameObj.reinit()
+}
+function randomX(){
+  return Math.floor(Math.random()*480)
+}
+function randomSpeedFactor(){
+  return Math.random()+0.5
+}
+function redOrGreen(){
+  const index = Math.random()
+  if(index<0.9) return "red"
+  return "green"
+}
+
+function checkColision(){
+  let i = 0
+  while(i<pops.length){
+    if(player.colideWith(pops[i])){
+      switch(pops[i].color){
+        case "red":
+          gameObj.blood--
+        case "green":
+          gameObj.score++
+      }
+      pops.splice(i,1)
+    }else{
+      i++
+    }
+    }
+  }
+

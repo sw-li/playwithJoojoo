@@ -260,9 +260,10 @@ img {
     border: 1px solid pink;
 }
 
-#avatar{
+div #playerImg{
     position:absolute;
     transform:translate(-50%,-50%);
     height:35px;
     width:35px;
-}
+  }
+
