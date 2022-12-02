@@ -382,6 +382,7 @@ const gameObj = {
     clearInterval(this.interval);
     this.score = 0;
     this.blood = 3;
+    gameStatusDom.score.innerText = "Score: 0"
     this.clear();
   },
   endCheck: function () {
