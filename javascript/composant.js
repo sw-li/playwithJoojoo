@@ -42,17 +42,18 @@ class Composant{
 class imgComposant extends Composant{
     constructor(x,y,color,speedFactor=1){
         super(x,y,color,speedFactor)
-        this.w = 20
-        this.h = 20
-        this.bufferSize = 2
+        this.w = 15
+        this.h = 15
+        this.bufferSize = 1
         this.speedX = 2* positifOrNegatif()
         this.speedY = 2
         this.speedFactor = speedFactor
+        this.img = randomImg(this.color)
     }
     update(){
         let ctx = document.querySelector("canvas").getContext("2d")
         this.newPos()
-        ctx.drawImage(randomImg(this.color), this.x,this.y,this.w,this.h)
+        ctx.drawImage(this.img, this.x,this.y,this.w,this.h)
     }
 }
 

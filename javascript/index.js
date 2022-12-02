@@ -97,7 +97,8 @@ window.onload = (e) => {
   audio.volume = 0.05;
 
   //try to load image src first
-  //composants.forEach(element => element.img.src = element.path);
+  veggieAndFruit.forEach(element => element.img.src = element.path);
+  meatAndFish.forEach(element => element.img.src = element.path);
 
   const onMouseMove = (e) => {
     let rect = canvas.getBoundingClientRect();
@@ -400,7 +401,7 @@ function updateGame1() {
   if (pops.length > 0) pops.forEach((compo) => compo.update());
   player.update();
   checkColision();
-  if (gameObj.frames % 20 === 0) {
+  if (gameObj.frames % 10 === 0) {
     pops.push(
       new Composant(
         randomX(),
