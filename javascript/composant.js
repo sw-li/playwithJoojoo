@@ -35,12 +35,7 @@ class Composant{
   }
 
   colideWith(composant){
-      if(this.bottom() < composant.top() || this.top()>composant.bottom() || this.right()<composant.left() ||this.left()>composant.right()) {
-          return false
-      }else{
-          console.log("colide")
-          return true
-      }
+      return !(this.bottom() < composant.top() || this.top()>composant.bottom() || this.right()<composant.left() ||this.left()>composant.right())
   }
 }
 

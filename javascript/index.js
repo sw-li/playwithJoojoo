@@ -19,67 +19,52 @@ const cats = [
 ];
 
 const shrimps = [
-  { name: "Shrimp1", img: "Shrimp1.png", forCat: true, forCanivore: true },
-  { name: "Shrimp2", img: "Shrimp2.png", forCat: true, forCanivore: true },
-  { name: "Shrimp3", img: "Shrimp3.png", forCat: true, forCanivore: true },
-  { name: "Shrimp1", img: "Shrimp1.png", forCat: true, forCanivore: true },
-  { name: "Shrimp2", img: "Shrimp2.png", forCat: true, forCanivore: true },
-  { name: "Shrimp3", img: "Shrimp3.png", forCat: true, forCanivore: true },
-  { name: "Shrimp1", img: "Shrimp1.png", forCat: true, forCanivore: true },
-  { name: "Shrimp2", img: "Shrimp2.png", forCat: true, forCanivore: true },
-  { name: "Shrimp3", img: "Shrimp3.png", forCat: true, forCanivore: true },
-  { name: "Shrimp1", img: "Shrimp1.png", forCat: true, forCanivore: true },
-  { name: "Shrimp2", img: "Shrimp2.png", forCat: true, forCanivore: true },
-  { name: "Shrimp3", img: "Shrimp3.png", forCat: true, forCanivore: true },
-  { name: "Shrimp1", img: "Shrimp1.png", forCat: true, forCanivore: true },
-  { name: "Shrimp2", img: "Shrimp2.png", forCat: true, forCanivore: true },
-  { name: "Shrimp3", img: "Shrimp3.png", forCat: true, forCanivore: true },
-  { name: "Shrimp1", img: "Shrimp1.png", forCat: true, forCanivore: true },
-  { name: "Shrimp2", img: "Shrimp2.png", forCat: true, forCanivore: true },
-  { name: "Shrimp3", img: "Shrimp3.png", forCat: true, forCanivore: true },
+  { name: "Shrimp1", img: "Shrimp1.png", forCat: true, color: "green" },
+  { name: "Shrimp2", img: "Shrimp2.png", forCat: true, color: "green" },
+  { name: "Shrimp3", img: "Shrimp3.png", forCat: true, color: "green" },
+  { name: "Shrimp1", img: "Shrimp1.png", forCat: true, color: "green" },
+  { name: "Shrimp2", img: "Shrimp2.png", forCat: true, color: "green" },
+  { name: "Shrimp3", img: "Shrimp3.png", forCat: true, color: "green" },
+  { name: "Shrimp1", img: "Shrimp1.png", forCat: true, color: "green" },
+  { name: "Shrimp2", img: "Shrimp2.png", forCat: true, color: "green" },
+  { name: "Shrimp3", img: "Shrimp3.png", forCat: true, color: "green" },
+  { name: "Shrimp1", img: "Shrimp1.png", forCat: true, color: "green" },
+  { name: "Shrimp2", img: "Shrimp2.png", forCat: true, color: "green" },
+  { name: "Shrimp3", img: "Shrimp3.png", forCat: true, color: "green" },
+  { name: "Shrimp1", img: "Shrimp1.png", forCat: true, color: "green" },
+  { name: "Shrimp2", img: "Shrimp2.png", forCat: true, color: "green" },
+  { name: "Shrimp3", img: "Shrimp3.png", forCat: true, color: "green" },
+  { name: "Shrimp1", img: "Shrimp1.png", forCat: true, color: "green" },
+  { name: "Shrimp2", img: "Shrimp2.png", forCat: true, color: "green" },
+  { name: "Shrimp3", img: "Shrimp3.png", forCat: true, color: "green" },
 ];
 
 const foods = [
-  { name: "Pizza", img: "Pizza.png", forCat: false, forCanivore: true },
-  { name: "Beet", img: "Beet.png", forCat: false, forCanivore: false },
-  { name: "Berries", img: "Berries.png", forCat: false, forCanivore: false },
-  { name: "Burger", img: "Burger.png", forCat: false, forCanivore: true },
-  { name: "Carrote", img: "Carrote.png", forCat: false, forCanivore: false },
-  { name: "Cheese", img: "Cheese.png", forCat: false, forCanivore: true },
-  { name: "Dumplings", img: "Dumplings.png", forCat: false, forCanivore: true },
-  { name: "Egg", img: "Egg.png", forCat: false, forCanivore: true },
-  { name: "Egg2", img: "Egg2.png", forCat: false, forCanivore: true },
-  { name: "Hotdog", img: "Hotdog.png", forCat: false, forCanivore: true },
-  {
-    name: "Mushrooms1",
-    img: "Mushrooms1.png",
-    forCat: false,
-    forCanivore: false,
-  },
-  {
-    name: "Mushrooms2",
-    img: "Mushrooms2.png",
-    forCat: false,
-    forCanivore: false,
-  },
-  {
-    name: "Mushrooms3",
-    img: "Mushrooms3.png",
-    forCat: false,
-    forCanivore: false,
-  },
-  { name: "Potatos", img: "Potatos.png", forCat: false, forCanivore: false },
-  { name: "Radish", img: "Radish.png", forCat: false, forCanivore: false },
-  { name: "Roti1", img: "Roti1.png", forCat: false, forCanivore: true },
-  { name: "Roti2", img: "Roti2.png", forCat: false, forCanivore: true },
-  { name: "Sausage", img: "Sausage.png", forCat: false, forCanivore: true },
-  { name: "Steak", img: "Steak.png", forCat: false, forCanivore: true },
-  { name: "Sushi1", img: "Sushi1.png", forCat: false, forCanivore: true },
-  { name: "Sushi2", img: "Sushi2.png", forCat: false, forCanivore: true },
-  { name: "Sushi3", img: "Sushi3.png", forCat: false, forCanivore: true },
-  { name: "Sushi4", img: "Sushi4.png", forCat: false, forCanivore: true },
-  { name: "Tomato", img: "Tomato.png", forCat: false, forCanivore: false },
-  { name: "Turkey", img: "Turkey.png", forCat: false, forCanivore: true },
+  { name: "Pizza", img: "Pizza.png", forCat: false, color: "green" },
+  { name: "Beet", img: "Beet.png", forCat: false, color: "red" },
+  { name: "Berries", img: "Berries.png", forCat: false, color: "red" },
+  { name: "Burger", img: "Burger.png", forCat: false, color: "green" },
+  { name: "Carrote", img: "Carrote.png", forCat: false, color: "red" },
+  { name: "Cheese", img: "Cheese.png", forCat: false, color: "green" },
+  { name: "Dumplings", img: "Dumplings.png", forCat: false, color: "green" },
+  { name: "Egg", img: "Egg.png", forCat: false, color: "green" },
+  { name: "Egg2", img: "Egg2.png", forCat: false, color: "green" },
+  { name: "Hotdog", img: "Hotdog.png", forCat: false, color: "green" },
+  { name: "Mushrooms1", img: "Mushrooms1.png", forCat: false, color: "red" },
+  { name: "Mushrooms2", img: "Mushrooms2.png", forCat: false, color: "red" },
+  { name: "Mushrooms3", img: "Mushrooms3.png", forCat: false, color: "red" },
+  { name: "Potatos", img: "Potatos.png", forCat: false, color: "red" },
+  { name: "Radish", img: "Radish.png", forCat: false, color: "red" },
+  { name: "Roti1", img: "Roti1.png", forCat: false, color: "green" },
+  { name: "Roti2", img: "Roti2.png", forCat: false, color: "green" },
+  { name: "Sausage", img: "Sausage.png", forCat: false, color: "green" },
+  { name: "Steak", img: "Steak.png", forCat: false, color: "green" },
+  { name: "Sushi1", img: "Sushi1.png", forCat: false, color: "green" },
+  { name: "Sushi2", img: "Sushi2.png", forCat: false, color: "green" },
+  { name: "Sushi3", img: "Sushi3.png", forCat: false, color: "green" },
+  { name: "Sushi4", img: "Sushi4.png", forCat: false, color: "green" },
+  { name: "Tomato", img: "Tomato.png", forCat: false, color: "red" },
+  { name: "Turkey", img: "Turkey.png", forCat: false, color: "green" },
 ];
 
 // for game 2 and 3
@@ -96,9 +81,9 @@ const playBtn2 = document.querySelector("#game2 .playPause");
 const playBtn3 = document.querySelector("#game3 .playPause");
 const game2Board = document.querySelector("#game2 .gameArea");
 const game3Board = document.querySelector("#game3 .gameArea");
-const levelUpBtn = document.getElementById("levelUpBtn")
-const game3replayBtn = document.getElementById("lostAllBloodBtn")
-const game3HitMsg = document.getElementById("game3HitMsg")
+const levelUpBtn = document.getElementById("levelUpBtn");
+const game3replayBtn = document.getElementById("lostAllBloodBtn");
+const game3HitMsg = document.getElementById("game3HitMsg");
 
 window.onload = (e) => {
   gameDivs.map((game) => (game.style.display = "none"));
@@ -108,36 +93,33 @@ window.onload = (e) => {
 
   let cardNodes = game2Board.querySelectorAll(".card");
   let cardsElemArr = [...cardNodes];
-  let audio = document.querySelector("audio")
-  audio.volume = 0.05
-  
+  let audio = document.querySelector("audio");
+  audio.volume = 0.05;
 
-   //try to load image src first 
+  //try to load image src first
   //composants.forEach(element => element.img.src = element.path);
 
-  const onMouseMove = (e) =>{
-    let rect = canvas.getBoundingClientRect()
-    player.x = e.clientX - rect.left - Math.floor(player.w/2)-2;
-    player.y = e.clientY - rect.top - Math.floor(player.h/2)-2; 
-    joojooImg.style.left = e.clientX+ 'px';
-    joojooImg.style.top = e.clientY+ 'px'; 
-  }
-  
-    //load click action to start game
-    playBtn1.onclick = ()=>{
-    gameStatusDom.blood.innerText = heart.repeat(3)
-    console.log("Game started")
-    playGame1()
-  }
+  const onMouseMove = (e) => {
+    let rect = canvas.getBoundingClientRect();
+    player.x = e.clientX - rect.left - Math.floor(player.w / 2) - 2;
+    player.y = e.clientY - rect.top - Math.floor(player.h / 2) - 2;
+    joojooImg.style.left = e.clientX + "px";
+    joojooImg.style.top = e.clientY + "px";
+  };
 
-  function playGame1(){
-    canvas.addEventListener('mousemove', onMouseMove); 
-    gameObj.clear()
-    gameObj.interval = setInterval(updateGame1, 20)
-  }
+  //load click action to start game
+  playBtn1.onclick = () => {
+    gameStatusDom.blood.innerText = heart.repeat(3);
+    console.log("Game started");
+    playGame1();
+  };
 
+  function playGame1() {
+    canvas.addEventListener("mousemove", onMouseMove);
+    gameObj.clear();
+    gameObj.interval = setInterval(updateGame1, 20);
+  }
 };
-
 
 //main page transition on click
 document.onclick = (e) => {
@@ -168,7 +150,6 @@ playBtn2.onclick = () => {
   loadGame2();
   game2Start();
 };
-
 
 function loadGame2() {
   findCats.shuffle();
@@ -282,29 +263,29 @@ function loadGame3() {
 //heart emoji in js
 var heart = "\u2665";
 var emptyHeart = "\u2661";
-var delayed 
+var delayed;
 playBtn3.onclick = () => {
   findShrimps.reinit();
   game3start();
   loadGame3();
-  flipAllcardsTwice(findShrimps.timeToMemorize)
+  flipAllcardsTwice(findShrimps.timeToMemorize);
 };
 game3replayBtn.onclick = () => {
   findShrimps.reinit();
   loadGame3();
-  flipAllcardsTwice(findShrimps.timeToMemorize)
+  flipAllcardsTwice(findShrimps.timeToMemorize);
 };
 
-levelUpBtn.onclick = () =>{
-  findShrimps.rightGuess =0
-  findShrimps.shuffle()
+levelUpBtn.onclick = () => {
+  findShrimps.rightGuess = 0;
+  findShrimps.shuffle();
   loadGame3();
-  flipAllcardsTwice(findShrimps.timeToMemorize)
-}
+  flipAllcardsTwice(findShrimps.timeToMemorize);
+};
 
 function game3start() {
-  // for now it's 5 shrimps fixed. 
- /*  let totalShrimps = 0;
+  // for now it's 5 shrimps fixed.
+  /*  let totalShrimps = 0;
   document.querySelectorAll(".card").forEach((card) => {
     if (card.getAttribute("data-name").indexOf("Shrimp") != -1) totalShrimps++;
   }); */
@@ -337,21 +318,24 @@ function game3start() {
       } else {
         //if the card is not shrimp, we lose one blood
         findShrimps.blood--;
-        if(findShrimps.blood == 2) game3HitMsg.innerText = "-1 Hissss, what's this?"
-        if(findShrimps.blood == 1) game3HitMsg.innerText = "-1 Last call, no shrimps no love!"
-        if(findShrimps.blood == 0) game3HitMsg.innerText = "-1 Love is overated"
-        game3HitMsg.style.opacity =1
-        fadeOutEffect(game3HitMsg)
+        if (findShrimps.blood == 2)
+          game3HitMsg.innerText = "-1 Hissss, what's this?";
+        if (findShrimps.blood == 1)
+          game3HitMsg.innerText = "-1 Last call, no shrimps no love!";
+        if (findShrimps.blood == 0)
+          game3HitMsg.innerText = "-1 Love is overated";
+        game3HitMsg.style.opacity = 1;
+        fadeOutEffect(game3HitMsg);
 
         console.log(findShrimps.bloodDom);
-        
-        findShrimps.bloodDom.innerText = emptyHeart.repeat(3-findShrimps.blood) + heart.repeat(
-          findShrimps.blood
-        );
+
+        findShrimps.bloodDom.innerText =
+          emptyHeart.repeat(3 - findShrimps.blood) +
+          heart.repeat(findShrimps.blood);
         //fire up a warning anoncement that you are not good
         //do it later, it's not that important
       }
-      findShrimps.gameEnd()
+      findShrimps.gameEnd();
     }
   };
 }
@@ -359,119 +343,128 @@ function game3start() {
 function flipAllcardsTwice(timeSpan) {
   const allCards = document.querySelectorAll(".card");
   allCards.forEach((card) => card.classList.add("turned"));
-  console.log(timeSpan)
-  setTimeout(function(){allCards.forEach((card) => card.classList.remove("turned"))}, timeSpan)
+  console.log(timeSpan);
+  setTimeout(function () {
+    allCards.forEach((card) => card.classList.remove("turned"));
+  }, timeSpan);
 }
 
-// game one 
+// game one
 /** @type {HTMLCanvasElement} */
-const canvas = document.querySelector("canvas")
-const ctx= canvas.getContext("2d")
+const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext("2d");
 const playBtn1 = document.querySelector("#game1 .playPause");
-let pops = []
-const joojooImg = document.getElementById("playerImg")
-const player = new Composant(0,0,"transparent")
-player.w = 30
-player.h = 30
-player.speedX = 0
-player.speedY = 0
+let pops = [];
+const joojooImg = document.getElementById("playerImg");
+const player = new Composant(0, 0, "transparent");
+player.w = 30;
+player.h = 30;
+player.speedX = 0;
+player.speedY = 0;
 const gameObj = {
-  frames: 0 ,
+  frames: 0,
   interval: undefined,
-  score:0,
-  blood:3,
-  hitMsg:"-1 blood",
-  speedUp:0,
-  cunter:0,
-  clear: function(){
-    ctx.clearRect(0,0,500,500)
+  score: 0,
+  blood: 3,
+  hitMsg: "-1 blood",
+  speedUp: 0,
+  cunter: 0,
+  clear: function () {
+    ctx.clearRect(0, 0, 500, 500);
   },
-  stop: function(){
+  stop: function () {
     // reinitialize everything
-    this.reinit()
+    this.reinit();
   },
-  reinit: function(){
-    this.frames = 0
-    clearInterval(this.interval)
-    this.score=0
-    this.blood=3
-    this.clear()
+  reinit: function () {
+    this.frames = 0;
+    clearInterval(this.interval);
+    this.score = 0;
+    this.blood = 3;
+    this.clear();
   },
-  endCheck:function(){
-    return this.blood===0
+  endCheck: function () {
+    return this.blood === 0;
   },
-}
-const game1OverDialog = document.getElementById("game1OverDialog")
-const gameStatusDom= {
+};
+const game1OverDialog = document.getElementById("game1OverDialog");
+game1OverDialog.querySelector(".annoncementBtn").onclick = stop
+const gameStatusDom = {
   score: document.querySelector("#game1 .score"),
-  blood: document.querySelector("#game1 .life")
-}
+  blood: document.querySelector("#game1 .life"),
+};
 
-function updateGame1(){
-  gameObj.clear()
-  gameObj.frames++
-  if(pops.length>0) pops.forEach(compo => compo.update())
-  player.update()
-  checkColision()
-  if(gameObj.frames %20 ===0){
-    pops.push(new Composant(randomX(), 0, redOrGreen(), randomSpeedFactor() + gameObj.speedUp));
+function updateGame1() {
+  gameObj.clear();
+  gameObj.frames++;
+  if (pops.length > 0) pops.forEach((compo) => compo.update());
+  player.update();
+  checkColision();
+  if (gameObj.frames % 20 === 0) {
+    pops.push(
+      new Composant(
+        randomX(),
+        0,
+        redOrGreen(),
+        randomSpeedFactor() + gameObj.speedUp
+      )
+    );
   }
   // garbage collecting
-  for(let i = 0; i<pops.length; i++){
-    if(pops[i].y > 550){
-      pops.splice(i,1)
-      gameObj.cunter ++
+  for (let i = 0; i < pops.length; i++) {
+    if (pops[i].y > 550) {
+      pops.splice(i, 1);
+      gameObj.cunter++;
     }
   }
 
-  if(gameObj.cunter ===50){
-    gameObj.cunter =0
-    gameObj.speedUp += 0.1
+  if (gameObj.cunter === 50) {
+    gameObj.cunter = 0;
+    gameObj.speedUp += 0.1;
   }
 
-  if(gameObj.endCheck()){
-    game1OverDialog.querySelector(".annoncement").innerHTML = "Oups, GAME OVER!"
+  if (gameObj.endCheck()) {
+    game1OverDialog.querySelector(".annoncement").innerHTML =
+      "Oups, GAME OVER!";
   }
-
 }
 
-function resetGame1(){
-  pops = []
-  gameObj.reinit()
+function stop() {
+  pops = [];
+  gameObj.reinit();
 }
-function randomX(){
-  return Math.floor(Math.random()*480)
+function randomX() {
+  return Math.floor(Math.random() * 480);
 }
-function randomSpeedFactor(){
-  return Math.random()+0.5
+function randomSpeedFactor() {
+  return Math.random() + 0.5;
 }
-function redOrGreen(){
-  const index = Math.random()
-  if(index<0.9) return "red"
-  return "green"
+function redOrGreen() {
+  const index = Math.random();
+  if (index < 0.9) return "red";
+  return "green";
 }
 
-function checkColision(){
-  let i = 0
-  while(i<pops.length){
-    if(player.colideWith(pops[i])){
-      switch(pops[i].color){
-        case "red":
-          if(gameObj.blood>0){
-            gameObj.blood--
-            gameStatusDom.blood.innerText = emptyHeart.repeat(3-gameObj.blood) + heart.repeat(gameObj.blood)
-            if(gameObj.endCheck()){
-              game1OverDialog.style.display = "flex"
+function checkColision() {
+  let i = 0;
+  while (i < pops.length) {
+    if (player.colideWith(pops[i]) && gameObj.blood > 0) {
+        if(pops[i].color =="red") {
+            gameObj.blood--;
+            gameStatusDom.blood.innerText =
+              emptyHeart.repeat(3 - gameObj.blood) +
+              heart.repeat(gameObj.blood);
+            if (gameObj.endCheck()) {
+              game1OverDialog.style.display = "flex";
             }
           }
-        case "green":
-          gameObj.score++
-          gameStatusDom.score.innerText = "Score: " + gameObj.score
-      }
-      pops.splice(i,1)
+        if(pops[i].color =="green"){
+          gameObj.score++;
+          gameStatusDom.score.innerText = "Score: " + gameObj.score;
+        }
+      pops.splice(i, 1);
     }else{
-      i++
-    }
+      i++;
     }
   }
-
+}
