@@ -3,9 +3,9 @@ class Composant{
       this.x = x
       this.y = y
       this.color = color
-      this.w = 20
-      this.h = 20
-      this.bufferSize = 2
+      this.w = 15
+      this.h = 15
+      this.bufferSize = 1
       this.speedX = 2* positifOrNegatif()
       this.speedY = 2
       this.speedFactor = speedFactor
