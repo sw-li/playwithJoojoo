@@ -169,7 +169,7 @@ function loadGame2() {
     html += ` 
       <div class="card" data-name=${cat.name}>
       <div class="cardFace back" ></div>
-      <div class="cardFace front" style="background-image: url(/images/cats/${cat.img});"> </div >
+      <div class="cardFace front" style="background-image: url(./images/cats/${cat.img});"> </div >
       </div>`;
   });
   game2Board.innerHTML = html;
@@ -258,7 +258,7 @@ function loadGame3() {
     html += ` 
       <div class="card" data-name=${food.name}>
       <div class="cardFace back" ></div>
-      <div class="cardFace front" style="background-image: url(/images/foods/${food.img});"> </div >
+      <div class="cardFace front" style="background-image: url(./images/foods/${food.img});"> </div >
       </div>`;
   });
   game3Board.innerHTML = html;
