@@ -42,9 +42,9 @@ class Composant{
 class imgComposant extends Composant{
     constructor(x,y,color,speedFactor=1){
         super(x,y,color,speedFactor)
-        this.w = 15
-        this.h = 15
-        this.bufferSize = 1
+        this.w = 30
+        this.h = 30
+        this.bufferSize = 3
         this.speedX = 2* positifOrNegatif()
         this.speedY = 2
         this.speedFactor = speedFactor
@@ -67,68 +67,64 @@ function positifOrNegatif(){
 
 
 const veggieAndFruit = [
-    { name: "Apple", img: "Apple.png", color: "red"},
-    { name: "Banana", img: "Banana.png", color: "red"},
-    { name: "Beet", img: "Beet.png", color: "red"},
-    { name: "Berries", img: "Berries.png", color: "red"},
-    { name: "Carrote", img: "Carrote.png", color: "red"},
-    { name: "Cherry", img: "Cherry.png", color: "red"},
-    { name: "Grapes", img: "Grapes.png", color: "red"},
-    { name: "Lemon", img: "Lemon.png", color: "red"},
-    { name: "Mushrooms1", img: "Mushrooms1.png", color: "red"},
-    { name: "Mushrooms2", img: "Mushrooms2.png", color: "red"},
-    { name: "Mushrooms3", img: "Mushrooms3.png", color: "red"},
-    { name: "Orange", img: "Orange.png", color: "red"},
-    { name: "PinePotatos", img: "PinePotatos.png", color: "red"},
-    { name: "Potatos", img: "Potatos.png", color: "red"},
-    { name: "Radish", img: "Radish.png", color: "red"},
-    { name: "Strawberry", img: "Strawberry.png", color: "red"},
-    { name: "Watermelon", img: "Watermelon.png", color: "red"},
+    { imgElem: new Image(),name: "Apple", path: "./images/foods/Apple.png", color: "red"},
+    { imgElem: new Image(),name: "Banana", path: "./images/foods/Banana.png", color: "red"},
+    { imgElem: new Image(),name: "Beet", path: "./images/foods/Beet.png", color: "red"},
+    { imgElem: new Image(),name: "Berries", path: "./images/foods/Berries.png", color: "red"},
+    { imgElem: new Image(),name: "Carrote", path: "./images/foods/Carrote.png", color: "red"},
+    { imgElem: new Image(),name: "Cherry", path: "./images/foods/Cherry.png", color: "red"},
+    { imgElem: new Image(),name: "Grapes", path: "./images/foods/Grapes.png", color: "red"},
+    { imgElem: new Image(),name: "Lemon", path: "./images/foods/Lemon.png", color: "red"},
+    { imgElem: new Image(),name: "Mushrooms1", path: "./images/foods/Mushrooms1.png", color: "red"},
+    { imgElem: new Image(),name: "Mushrooms2", path: "./images/foods/Mushrooms2.png", color: "red"},
+    { imgElem: new Image(),name: "Mushrooms3", path: "./images/foods/Mushrooms3.png", color: "red"},
+    { imgElem: new Image(),name: "Orange", path: "./images/foods/Orange.png", color: "red"},
+    { imgElem: new Image(),name: "Pineapple", path: "./images/foods/Pineapple.png", color: "red"},
+    { imgElem: new Image(),name: "Potatos", path: "./images/foods/Potatos.png", color: "red"},
+    { imgElem: new Image(),name: "Radish", path: "./images/foods/Radish.png", color: "red"},
+    { imgElem: new Image(),name: "Strawberry", path: "./images/foods/Strawberry.png", color: "red"},
+    { imgElem: new Image(),name: "Watermelon", path: "./images/foods/Watermelon.png", color: "red"},
 ]
 
 const meatAndFish =[
-    { name: "Bacon", img: "Bacon.png", color: "green" },
-    { name: "Bacon_dish", img: "Bacon_dish.png", color: "green" },
-    { name: "Burger", img: "Burger.png", color: "green" },
-    { name: "Burger_1", img: "Burger_1.png", color: "green" },
-    { name: "Drumstick", img: "Drumstick.png", color: "green" },
-    { name: "Cheese", img: "Cheese.png", color: "green" },
-    { name: "Dumplings", img: "Dumplings.png", color: "green" },
-    { name: "Egg", img: "Egg.png", color: "green" },
-    { name: "Egg2", img: "Egg2.png", color: "green" },
-    { name: "Hotdog", img: "Hotdog.png", color: "green" },
-    { name: "Meatball", img: "Meatball.png", color: "green" },
-    { name: "Pizza", img: "Pizza.png", color: "green" },
-    { name: "Pizza 2", img: "Pizza 2.png", color: "green" },
-    { name: "Roti1", img: "Roti1.png", color: "green" },
-    { name: "Roti2", img: "Roti2.png", color: "green" },
-    { name: "Sausage", img: "Sausage.png", color: "green" },
-    { name: "Steak", img: "Steak.png", color: "green" },
-    { name: "Steak1", img: "Steak1.png", color: "green" },
-    { name: "Steak_dish", img: "Steak_dish.png", color: "green" },
-    { name: "Shrimp1", img: "Shirmp1.png", color: "green" },
-    { name: "Shrimp2", img: "Shirmp2.png", color: "green" },
-    { name: "Shrimp3", img: "Shirmp3.png", color: "green" },
-    { name: "Sushi1", img: "Sushi1.png", color: "green" },
-    { name: "Sushi2", img: "Sushi2.png", color: "green" },
-    { name: "Sushi3", img: "Sushi3.png", color: "green" },
-    { name: "Sushi4", img: "Sushi4.png", color: "green" },
-    { name: "Turkey", img: "Turkey.png", color: "green" },
-    { name: "Cheese", img: "Cheese.png", color: "green"},
-    { name: "Taco", img: "Taco.png", color: "green"},
+    { imgElem: new Image(),name: "Bacon", path: "./images/foods/Bacon.png", color: "green" },
+    { imgElem: new Image(),name: "Bacon_dish", path: "./images/foods/Bacon_dish.png", color: "green" },
+    { imgElem: new Image(),name: "Burger", path: "./images/foods/Burger.png", color: "green" },
+    { imgElem: new Image(),name: "Burger1", path: "./images/foods/Burger1.png", color: "green" },
+    { imgElem: new Image(),name: "Drumstick", path: "./images/foods/Drumstick.png", color: "green" },
+    { imgElem: new Image(),name: "Cheese", path: "./images/foods/Cheese.png", color: "green" },
+    { imgElem: new Image(),name: "Dumplings", path: "./images/foods/Dumplings.png", color: "green" },
+    { imgElem: new Image(),name: "Egg", path: "./images/foods/Egg.png", color: "green" },
+    { imgElem: new Image(),name: "Egg2", path: "./images/foods/Egg2.png", color: "green" },
+    { imgElem: new Image(),name: "Hotdog", path: "./images/foods/Hotdog.png", color: "green" },
+    { imgElem: new Image(),name: "Meatball", path: "./images/foods/Meatball.png", color: "green" },
+    { imgElem: new Image(),name: "Pizza", path: "./images/foods/Pizza.png", color: "green" },
+    { imgElem: new Image(),name: "Pizza 2", path: "./images/foods/Pizza 2.png", color: "green" },
+    { imgElem: new Image(),name: "Roti1", path: "./images/foods/Roti1.png", color: "green" },
+    { imgElem: new Image(),name: "Roti2", path: "./images/foods/Roti2.png", color: "green" },
+    { imgElem: new Image(),name: "Sausage", path: "./images/foods/Sausage.png", color: "green" },
+    { imgElem: new Image(),name: "Steak", path: "./images/foods/Steak.png", color: "green" },
+    { imgElem: new Image(),name: "Steak1", path: "./images/foods/Steak1.png", color: "green" },
+    { imgElem: new Image(),name: "Steak_dish", path: "./images/foods/Steak_dish.png", color: "green" },
+    { imgElem: new Image(),name: "Shrimp1", path: "./images/foods/Shrimp1.png", color: "green" },
+    { imgElem: new Image(),name: "Shrimp2", path: "./images/foods/Shrimp2.png", color: "green" },
+    { imgElem: new Image(),name: "Shrimp3", path: "./images/foods/Shrimp3.png", color: "green" },
+    { imgElem: new Image(),name: "Sushi1", path: "./images/foods/Sushi1.png", color: "green" },
+    { imgElem: new Image(),name: "Sushi2", path: "./images/foods/Sushi2.png", color: "green" },
+    { imgElem: new Image(),name: "Sushi3", path: "./images/foods/Sushi3.png", color: "green" },
+    { imgElem: new Image(),name: "Sushi4", path: "./images/foods/Sushi4.png", color: "green" },
+    { imgElem: new Image(),name: "Turkey", path: "./images/foods/Turkey.png", color: "green" },
+    { imgElem: new Image(),name: "Cheese", path: "./images/foods/Cheese.png", color: "green"},
+    { imgElem: new Image(),name: "Taco", path: "./images/foods/Taco.png", color: "green"},
 ]
 
 function randomImg(color){
-    const img = new Image()
-    let imgName = ""
     switch(color){
         case "green":
-        imgName = randomMemberOfArray(meatAndFish).name
+        return randomMemberOfArray(meatAndFish).imgElem  
         case "red":
-        imgName = randomMemberOfArray(veggieAndFruit).name
+        return randomMemberOfArray(veggieAndFruit).imgElem  
     }
-    img.src = "./images/foods/"+imgName +".png"
-    return img
 }
 
 function randomMemberOfArray(arr){

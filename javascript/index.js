@@ -97,8 +97,8 @@ window.onload = (e) => {
   audio.volume = 0.05;
 
   //try to load image src first
-  veggieAndFruit.forEach(element => element.img.src = element.path);
-  meatAndFish.forEach(element => element.img.src = element.path);
+  veggieAndFruit.forEach(element => element.imgElem.src = element.path);
+  meatAndFish.forEach(element => element.imgElem.src = element.path);
 
   const onMouseMove = (e) => {
     let rect = canvas.getBoundingClientRect();
@@ -110,9 +110,9 @@ window.onload = (e) => {
 
   //load click action to start game
   playBtn1.onclick = () => {
-    gameStatusDom.blood.innerText = heart.repeat(3);
-    console.log("Game started");
-    playGame1();
+      gameStatusDom.blood.innerText = heart.repeat(3);
+      console.log("Game started");
+      playGame1();
   };
 
   function playGame1() {
@@ -404,7 +404,7 @@ function updateGame1() {
   checkColision();
   if (gameObj.frames % 10 === 0) {
     pops.push(
-      new Composant(
+      new imgComposant(
         randomX(),
         0,
         redOrGreen(),
