@@ -77,6 +77,13 @@ let otherFood = genericShuffle(foods).splice(0, 11);
 let findShrimps = new Game3(shripsForGame.concat(otherFood));
 let cubeGame = true;
 
+const game1Levels = {
+  level1: document.querySelector("levelChoice1"),
+  level2: document.querySelector("levelChoice2"),
+  level3: document.querySelector("levelChoice3"),
+}
+
+
 const checkbox1 = document.querySelector("#checkbox1");
 const checkbox2 = document.querySelector("#checkbox2");
 const playBtn2 = document.querySelector("#game2 .playPause");
