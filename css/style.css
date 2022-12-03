@@ -78,6 +78,11 @@ body {
     padding: 30px;
 }
 
+input.largerCheckbox {
+    width: 20px;
+    height: 20px;
+}
+
 .annoncement{
     font-weight: 900;
 }

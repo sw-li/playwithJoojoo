@@ -75,8 +75,10 @@ let findCats = new Game2(randomCatsForGame.concat(randomCatsForGame));
 let shripsForGame = genericShuffle(shrimps).splice(0, 5);
 let otherFood = genericShuffle(foods).splice(0, 11);
 let findShrimps = new Game3(shripsForGame.concat(otherFood));
+let cubeGame = true;
 
-const checkbox = document.querySelector("#checkbox");
+const checkbox1 = document.querySelector("#checkbox1");
+const checkbox2 = document.querySelector("#checkbox2");
 const playBtn2 = document.querySelector("#game2 .playPause");
 const playBtn3 = document.querySelector("#game3 .playPause");
 const game2Board = document.querySelector("#game2 .gameArea");
@@ -113,6 +115,7 @@ window.onload = (e) => {
       gameStatusDom.blood.innerText = heart.repeat(3);
       console.log("Game started");
       playGame1();
+      checkbox1.disabled = true;
   };
 
   function playGame1() {
@@ -237,7 +240,7 @@ function timeGame() {
   findCats.timerDom = document.getElementById("chronoLimit");
   findCats.timeLimit = document.getElementById("timeLimit").value;
   findCats.time = findCats.timeLimit * 100;
-  if (checkbox.checked) {
+  if (checkbox2.checked) {
     findCats.timeLimited = true;
     findCats.timerDom.innerText = formatingTime(findCats.timeLimit * 100);
   } else {
@@ -376,6 +379,7 @@ const gameObj = {
   stop: function () {
     // reinitialize everything
     this.reinit();
+    checkbox1.disabled = false;
   },
   reinit: function () {
     this.frames = 0;
@@ -396,6 +400,8 @@ const gameStatusDom = {
   blood: document.querySelector("#game1 .life"),
 };
 
+
+
 function updateGame1() {
   gameObj.clear();
   gameObj.frames++;
@@ -403,14 +409,26 @@ function updateGame1() {
   player.update();
   checkColision();
   if (gameObj.frames % 10 === 0) {
-    pops.push(
-      new imgComposant(
-        randomX(),
-        0,
-        redOrGreen(),
-        randomSpeedFactor() + gameObj.speedUp
-      )
-    );
+    if(cubeGame){
+      pops.push(
+        new Composant(
+          randomX(),
+          0,
+          redOrGreen(),
+          randomSpeedFactor() + gameObj.speedUp
+        )
+      );
+    }else{
+      pops.push(
+        new imgComposant(
+          randomX(),
+          0,
+          redOrGreen(),
+          randomSpeedFactor() + gameObj.speedUp
+        )
+      );
+    }
+ 
   }
   // garbage collecting
   for (let i = 0; i < pops.length; i++) {
@@ -434,6 +452,7 @@ function updateGame1() {
 function stop() {
   pops = [];
   gameObj.reinit();
+  checkbox1.disabled = false;
 }
 function randomX() {
   return Math.floor(Math.random() * 480);
@@ -468,5 +487,22 @@ function checkColision() {
     }else{
       i++;
     }
+  }
+}
+
+
+
+
+function cubeOrImg(){
+  const gameTitleDom = document.querySelector("#game1>.description>h1")
+  const gameDescription = document.querySelector("#game1>.description>p")
+  if (checkbox1.checked) {
+    cubeGame = false
+    gameTitleDom.innerText ="SHE IS A BEAST"
+    gameDescription.innerText = "Hint:She is not a rabit"
+  } else {
+    cubeGame = true
+    gameTitleDom.innerText ="DON'T TOUCH THE RED CUBES"
+    gameDescription.innerText = "Hint: just don't do it."
   }
 }

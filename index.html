@@ -25,6 +25,11 @@
                 <div class="description">
                     <h1 class="intro title">DON'T TOUCH THE RED CUBES!</h1>
                     <p class="intro">HINT: DO NOT TOUCH THE RED CUBES!</p>
+                    <div id="imgOption" style="text-align: center;">
+                        <input id="checkbox1" type="checkbox" class="largerCheckbox" onchange="cubeOrImg()">
+                        <label for="checkbox1">Switch to canivore mode</label>
+                    </div>
+                    
                     <input class="playPause intro" type="image" src="./images/Play.png">
                 </div>
                 <div class="gameboard">
@@ -53,8 +58,8 @@
                         <h3 id="chronoLimit" >00:00.00</h3>
                     </div>
                     <div id="timeOption" style="text-align:center;">
-                        <input id="checkbox" type="checkbox" onchange="timeGame()">
-                        <label for="checkbox">Time limit:</label>
+                        <input id="checkbox2" type="checkbox" class="largerCheckbox" onchange="timeGame()">
+                        <label for="checkbox2">Time limit:</label>
                         <input id="timeLimit" type="number" value="30" style="width:50px;"  onchange="timeGame()">
                         <label for="timeLimit">s</label>
                     </div>
