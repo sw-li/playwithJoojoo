@@ -1,98 +1,8 @@
+//entrance for diferentes games
 const gameDivs = [...document.getElementsByClassName("gameDiv")];
-const cats = [
-  { name: "cat1", img: "cat1.jpg" },
-  { name: "cat2", img: "cat2.jpg" },
-  { name: "cat3", img: "cat3.jpg" },
-  { name: "cat4", img: "cat4.jpg" },
-  { name: "cat5", img: "cat5.jpg" },
-  { name: "cat6", img: "cat6.jpg" },
-  { name: "cat7", img: "cat7.jpg" },
-  { name: "cat8", img: "cat8.jpg" },
-  { name: "cat9", img: "cat9.jpg" },
-  { name: "cat10", img: "cat10.jpg" },
-  { name: "cat11", img: "cat11.jpg" },
-  { name: "cat12", img: "cat12.jpg" },
-  { name: "cat13", img: "cat13.jpg" },
-  { name: "cat14", img: "cat14.jpg" },
-  { name: "cat15", img: "cat15.jpg" },
-  { name: "cat16", img: "cat16.jpg" },
-];
-
-const shrimps = [
-  { name: "Shrimp1", img: "Shrimp1.png", forCat: true, color: "green" },
-  { name: "Shrimp2", img: "Shrimp2.png", forCat: true, color: "green" },
-  { name: "Shrimp3", img: "Shrimp3.png", forCat: true, color: "green" },
-  { name: "Shrimp1", img: "Shrimp1.png", forCat: true, color: "green" },
-  { name: "Shrimp2", img: "Shrimp2.png", forCat: true, color: "green" },
-  { name: "Shrimp3", img: "Shrimp3.png", forCat: true, color: "green" },
-  { name: "Shrimp1", img: "Shrimp1.png", forCat: true, color: "green" },
-  { name: "Shrimp2", img: "Shrimp2.png", forCat: true, color: "green" },
-  { name: "Shrimp3", img: "Shrimp3.png", forCat: true, color: "green" },
-  { name: "Shrimp1", img: "Shrimp1.png", forCat: true, color: "green" },
-  { name: "Shrimp2", img: "Shrimp2.png", forCat: true, color: "green" },
-  { name: "Shrimp3", img: "Shrimp3.png", forCat: true, color: "green" },
-  { name: "Shrimp1", img: "Shrimp1.png", forCat: true, color: "green" },
-  { name: "Shrimp2", img: "Shrimp2.png", forCat: true, color: "green" },
-  { name: "Shrimp3", img: "Shrimp3.png", forCat: true, color: "green" },
-  { name: "Shrimp1", img: "Shrimp1.png", forCat: true, color: "green" },
-  { name: "Shrimp2", img: "Shrimp2.png", forCat: true, color: "green" },
-  { name: "Shrimp3", img: "Shrimp3.png", forCat: true, color: "green" },
-];
-
-const foods = [
-  { name: "Pizza", img: "Pizza.png", forCat: false, color: "green" },
-  { name: "Beet", img: "Beet.png", forCat: false, color: "red" },
-  { name: "Berries", img: "Berries.png", forCat: false, color: "red" },
-  { name: "Burger", img: "Burger.png", forCat: false, color: "green" },
-  { name: "Carrote", img: "Carrote.png", forCat: false, color: "red" },
-  { name: "Cheese", img: "Cheese.png", forCat: false, color: "green" },
-  { name: "Dumplings", img: "Dumplings.png", forCat: false, color: "green" },
-  { name: "Egg", img: "Egg.png", forCat: false, color: "green" },
-  { name: "Egg2", img: "Egg2.png", forCat: false, color: "green" },
-  { name: "Hotdog", img: "Hotdog.png", forCat: false, color: "green" },
-  { name: "Mushrooms1", img: "Mushrooms1.png", forCat: false, color: "red" },
-  { name: "Mushrooms2", img: "Mushrooms2.png", forCat: false, color: "red" },
-  { name: "Mushrooms3", img: "Mushrooms3.png", forCat: false, color: "red" },
-  { name: "Potatos", img: "Potatos.png", forCat: false, color: "red" },
-  { name: "Radish", img: "Radish.png", forCat: false, color: "red" },
-  { name: "Roti1", img: "Roti1.png", forCat: false, color: "green" },
-  { name: "Roti2", img: "Roti2.png", forCat: false, color: "green" },
-  { name: "Sausage", img: "Sausage.png", forCat: false, color: "green" },
-  { name: "Steak", img: "Steak.png", forCat: false, color: "green" },
-  { name: "Sushi1", img: "Sushi1.png", forCat: false, color: "green" },
-  { name: "Sushi2", img: "Sushi2.png", forCat: false, color: "green" },
-  { name: "Sushi3", img: "Sushi3.png", forCat: false, color: "green" },
-  { name: "Sushi4", img: "Sushi4.png", forCat: false, color: "green" },
-  { name: "Tomato", img: "Tomato.png", forCat: false, color: "red" },
-  { name: "Turkey", img: "Turkey.png", forCat: false, color: "green" },
-];
-
-// for game 2 and 3
-let selectedCards = [];
-let randomCatsForGame = genericShuffle(cats).splice(0, 8);
-let findCats = new Game2(randomCatsForGame.concat(randomCatsForGame));
-
-let shripsForGame = genericShuffle(shrimps).splice(0, 5);
-let otherFood = genericShuffle(foods).splice(0, 11);
-let findShrimps = new Game3(shripsForGame.concat(otherFood));
-let cubeGame = true;
-
-const game1Levels = {
-  level1: document.querySelector("levelChoice1"),
-  level2: document.querySelector("levelChoice2"),
-  level3: document.querySelector("levelChoice3"),
-}
-
-
-const checkbox1 = document.querySelector("#checkbox1");
-const checkbox2 = document.querySelector("#checkbox2");
-const playBtn2 = document.querySelector("#game2 .playPause");
-const playBtn3 = document.querySelector("#game3 .playPause");
-const game2Board = document.querySelector("#game2 .gameArea");
-const game3Board = document.querySelector("#game3 .gameArea");
-const levelUpBtn = document.getElementById("levelUpBtn");
-const game3replayBtn = document.getElementById("lostAllBloodBtn");
-const game3HitMsg = document.getElementById("game3HitMsg");
+//heart for hit representations
+var heart = "\u2665";
+var emptyHeart = "\u2661";
 
 window.onload = (e) => {
   gameDivs.map((game) => (game.style.display = "none"));
@@ -131,7 +41,6 @@ window.onload = (e) => {
     gameObj.interval = setInterval(updateGame1, 20);
   }
 };
-
 //main page transition on click
 document.onclick = (e) => {
   if (e.target.classList.contains("to1")) {
@@ -157,11 +66,169 @@ document.onclick = (e) => {
   }
 };
 
+// game 1
+/** @type {HTMLCanvasElement} */
+const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext("2d");
+const playBtn1 = document.querySelector("#game1 .playPause");
+const game1OverDialog = document.getElementById("game1OverDialog");
+const checkbox1 = document.querySelector("#checkbox1");
+const joojooImg = document.getElementById("playerImg");
+const player = new Composant(0, 0, "transparent");
+player.w = 30;
+player.h = 30;
+player.speedX = 0;
+player.speedY = 0;
+let pops = [];
+let cubeGame = true;
+const gameStatusDom = {
+  score: document.querySelector("#game1 .score"),
+  blood: document.querySelector("#game1 .life"),
+};
+const gameObj = {
+  frames: 0,
+  interval: undefined,
+  score: 0,
+  blood: 3,
+  hitMsg: "-1 blood",
+  speedUp: 0,
+  cunter: 0,
+  clear: function () {
+    ctx.clearRect(0, 0, 500, 500);
+  },
+  stop: function () {
+    pops = [];
+    gameObj.reinit();
+    checkbox1.disabled = false;
+  },
+  reinit: function () {
+    this.frames = 0;
+    clearInterval(this.interval);
+    this.score = 0;
+    this.blood = 3;
+    this.speedUp =0;
+    this.cunter = 0;
+    gameStatusDom.score.innerText = "Score: 0"
+    this.clear();
+  },
+  endCheck: function () {
+    return this.blood === 0;
+  },
+};
+
+
+game1OverDialog.querySelector(".annoncementBtn").onclick = gameObj.stop
+
+function updateGame1() {
+  gameObj.clear();
+  gameObj.frames++;
+  if (pops.length > 0) pops.forEach((compo) => compo.update());
+  player.update();
+  checkColision();
+  if (gameObj.frames % 10 === 0) {
+    if(cubeGame){
+      pops.push(
+        new Composant(
+          randomX(),
+          0,
+          redOrGreen(),
+          randomSpeedFactor() + gameObj.speedUp
+        )
+      );
+    }else{
+      pops.push(
+        new imgComposant(
+          randomX(),
+          0,
+          redOrGreen(),
+          randomSpeedFactor() + gameObj.speedUp
+        )
+      );
+    }
+ 
+  }
+  // garbage collecting
+  for (let i = 0; i < pops.length; i++) {
+    if (pops[i].y > 550) {
+      pops.splice(i, 1);
+      gameObj.cunter++;
+    }
+  }
+
+  if (gameObj.cunter === 50) {
+    gameObj.cunter = 0;
+    gameObj.speedUp += 0.1;
+  }
+
+  if (gameObj.endCheck()) {
+    game1OverDialog.querySelector(".annoncement").innerHTML =
+      "Oups, GAME OVER!";
+  }
+}
+function checkColision() {
+  let i = 0;
+  while (i < pops.length) {
+    if (player.colideWith(pops[i]) && gameObj.blood > 0) {
+        if(pops[i].color =="red") {
+            gameObj.blood--;
+            gameStatusDom.blood.innerText =
+              emptyHeart.repeat(3 - gameObj.blood) +
+              heart.repeat(gameObj.blood);
+            if (gameObj.endCheck()) {
+              game1OverDialog.style.display = "flex";
+            }
+          }
+        if(pops[i].color =="green"){
+          gameObj.score++;
+          gameStatusDom.score.innerText = "Score: " + gameObj.score;
+        }
+      pops.splice(i, 1);
+    }else{
+      i++;
+    }
+  }
+}
+//encapsulations of some steps in functions to make the main 
+//strucutre more readable
+function randomX() {
+  return Math.floor(Math.random() * 480);
+}
+function randomSpeedFactor() {
+  return Math.random() + 0.5;
+}
+function redOrGreen() {
+  const index = Math.random();
+  if (index < 0.9) return "red";
+  return "green";
+}
+function cubeOrImg(){
+  const gameTitleDom = document.querySelector("#game1>.description>h1")
+  const gameDescription = document.querySelector("#game1>.description>p")
+  if (checkbox1.checked) {
+    cubeGame = false
+    gameTitleDom.innerText ="SHE IS A BEAST"
+    gameDescription.innerText = "Hint:She is not a rabit"
+  } else {
+    cubeGame = true
+    gameTitleDom.innerText ="DON'T TOUCH THE RED CUBES"
+    gameDescription.innerText = "Hint: just don't do it."
+  }
+}
+
+
+
+
+// game 2 
+const checkbox2 = document.querySelector("#checkbox2");
+const playBtn2 = document.querySelector("#game2 .playPause");
+const game2Board = document.querySelector("#game2 .gameArea");
+let selectedCards = [];
+let randomCatsForGame = genericShuffle(cats).splice(0, 8);
+let findCats = new Game2(randomCatsForGame.concat(randomCatsForGame));
 playBtn2.onclick = () => {
   loadGame2();
   game2Start();
 };
-
 function loadGame2() {
   findCats.shuffle();
   findCats.pickedPairs = 0;
@@ -181,8 +248,7 @@ function loadGame2() {
   });
   game2Board.innerHTML = html;
 }
-
-// game2 manipulation
+//game2 manipulation
 function game2Start() {
   //if timed
   if (findCats.timeLimited == true) {
@@ -241,7 +307,6 @@ function game2Start() {
     }
   };
 }
-
 //Use checkbox to decide if the game is timed
 function timeGame() {
   findCats.timerDom = document.getElementById("chronoLimit");
@@ -257,6 +322,28 @@ function timeGame() {
   }
 }
 
+
+
+// game 3 
+let shripsForGame = genericShuffle(shrimps).splice(0, 5);
+let otherFood = genericShuffle(foods).splice(0, 11);
+let findShrimps = new Game3(shripsForGame.concat(otherFood));
+const playBtn3 = document.querySelector("#game3 .playPause");
+const game3Board = document.querySelector("#game3 .gameArea");
+const levelUpBtn = document.getElementById("levelUpBtn");
+const game3replayBtn = document.getElementById("lostAllBloodBtn");
+const game3HitMsg = document.getElementById("game3HitMsg");
+playBtn3.onclick = () => {
+  findShrimps.reinit();
+  game3start();
+  loadGame3();
+  flipAllcardsTwice(findShrimps.timeToMemorize);
+};
+game3replayBtn.onclick = () => {
+  findShrimps.reinit();
+  loadGame3();
+  flipAllcardsTwice(findShrimps.timeToMemorize);
+};
 function loadGame3() {
   findShrimps.shuffle();
   let html = "";
@@ -270,30 +357,12 @@ function loadGame3() {
   });
   game3Board.innerHTML = html;
 }
-
-//heart emoji in js
-var heart = "\u2665";
-var emptyHeart = "\u2661";
-var delayed;
-playBtn3.onclick = () => {
-  findShrimps.reinit();
-  game3start();
-  loadGame3();
-  flipAllcardsTwice(findShrimps.timeToMemorize);
-};
-game3replayBtn.onclick = () => {
-  findShrimps.reinit();
-  loadGame3();
-  flipAllcardsTwice(findShrimps.timeToMemorize);
-};
-
 levelUpBtn.onclick = () => {
   findShrimps.rightGuess = 0;
   findShrimps.shuffle();
   loadGame3();
   flipAllcardsTwice(findShrimps.timeToMemorize);
 };
-
 function game3start() {
   // for now it's 5 shrimps fixed.
   /*  let totalShrimps = 0;
@@ -350,7 +419,6 @@ function game3start() {
     }
   };
 }
-
 function flipAllcardsTwice(timeSpan) {
   const allCards = document.querySelectorAll(".card");
   allCards.forEach((card) => card.classList.add("turned"));
@@ -360,158 +428,3 @@ function flipAllcardsTwice(timeSpan) {
   }, timeSpan);
 }
 
-// game one
-/** @type {HTMLCanvasElement} */
-const canvas = document.querySelector("canvas");
-const ctx = canvas.getContext("2d");
-const playBtn1 = document.querySelector("#game1 .playPause");
-let pops = [];
-const joojooImg = document.getElementById("playerImg");
-const player = new Composant(0, 0, "transparent");
-player.w = 30;
-player.h = 30;
-player.speedX = 0;
-player.speedY = 0;
-const gameObj = {
-  frames: 0,
-  interval: undefined,
-  score: 0,
-  blood: 3,
-  hitMsg: "-1 blood",
-  speedUp: 0,
-  cunter: 0,
-  clear: function () {
-    ctx.clearRect(0, 0, 500, 500);
-  },
-  stop: function () {
-    // reinitialize everything
-    this.reinit();
-    checkbox1.disabled = false;
-  },
-  reinit: function () {
-    this.frames = 0;
-    clearInterval(this.interval);
-    this.score = 0;
-    this.blood = 3;
-    this.speedUp =0;
-    this.cunter = 0;
-    gameStatusDom.score.innerText = "Score: 0"
-    this.clear();
-  },
-  endCheck: function () {
-    return this.blood === 0;
-  },
-};
-const game1OverDialog = document.getElementById("game1OverDialog");
-game1OverDialog.querySelector(".annoncementBtn").onclick = stop
-const gameStatusDom = {
-  score: document.querySelector("#game1 .score"),
-  blood: document.querySelector("#game1 .life"),
-};
-
-
-
-function updateGame1() {
-  gameObj.clear();
-  gameObj.frames++;
-  if (pops.length > 0) pops.forEach((compo) => compo.update());
-  player.update();
-  checkColision();
-  if (gameObj.frames % 10 === 0) {
-    if(cubeGame){
-      pops.push(
-        new Composant(
-          randomX(),
-          0,
-          redOrGreen(),
-          randomSpeedFactor() + gameObj.speedUp
-        )
-      );
-    }else{
-      pops.push(
-        new imgComposant(
-          randomX(),
-          0,
-          redOrGreen(),
-          randomSpeedFactor() + gameObj.speedUp
-        )
-      );
-    }
- 
-  }
-  // garbage collecting
-  for (let i = 0; i < pops.length; i++) {
-    if (pops[i].y > 550) {
-      pops.splice(i, 1);
-      gameObj.cunter++;
-    }
-  }
-
-  if (gameObj.cunter === 50) {
-    gameObj.cunter = 0;
-    gameObj.speedUp += 0.1;
-  }
-
-  if (gameObj.endCheck()) {
-    game1OverDialog.querySelector(".annoncement").innerHTML =
-      "Oups, GAME OVER!";
-  }
-}
-
-function stop() {
-  pops = [];
-  gameObj.reinit();
-  checkbox1.disabled = false;
-}
-function randomX() {
-  return Math.floor(Math.random() * 480);
-}
-function randomSpeedFactor() {
-  return Math.random() + 0.5;
-}
-function redOrGreen() {
-  const index = Math.random();
-  if (index < 0.9) return "red";
-  return "green";
-}
-
-function checkColision() {
-  let i = 0;
-  while (i < pops.length) {
-    if (player.colideWith(pops[i]) && gameObj.blood > 0) {
-        if(pops[i].color =="red") {
-            gameObj.blood--;
-            gameStatusDom.blood.innerText =
-              emptyHeart.repeat(3 - gameObj.blood) +
-              heart.repeat(gameObj.blood);
-            if (gameObj.endCheck()) {
-              game1OverDialog.style.display = "flex";
-            }
-          }
-        if(pops[i].color =="green"){
-          gameObj.score++;
-          gameStatusDom.score.innerText = "Score: " + gameObj.score;
-        }
-      pops.splice(i, 1);
-    }else{
-      i++;
-    }
-  }
-}
-
-
-
-
-function cubeOrImg(){
-  const gameTitleDom = document.querySelector("#game1>.description>h1")
-  const gameDescription = document.querySelector("#game1>.description>p")
-  if (checkbox1.checked) {
-    cubeGame = false
-    gameTitleDom.innerText ="SHE IS A BEAST"
-    gameDescription.innerText = "Hint:She is not a rabit"
-  } else {
-    cubeGame = true
-    gameTitleDom.innerText ="DON'T TOUCH THE RED CUBES"
-    gameDescription.innerText = "Hint: just don't do it."
-  }
-}
