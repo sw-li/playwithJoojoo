@@ -20,11 +20,12 @@ window.onload = (e) => {
   meatAndFish.forEach(element => element.imgElem.src = element.path);
 
   const onMouseMove = (e) => {
-    let rect = canvas.getBoundingClientRect();
+    let rect = mouseCanvas.getBoundingClientRect();
     player.x = e.clientX - rect.left - Math.floor(player.w / 2) - 2;
     player.y = e.clientY - rect.top - Math.floor(player.h / 2) - 2;
     joojooImg.style.left = e.clientX + "px";
     joojooImg.style.top = e.clientY + "px";
+    console.log(player.x, player.y)
   };
 
   //load click action to start game
@@ -68,7 +69,10 @@ document.onclick = (e) => {
 
 // game 1
 /** @type {HTMLCanvasElement} */
-const canvas = document.querySelector("canvas");
+const mouseCanvas = document.querySelector("#mouseCanvas");
+const canvas = document.querySelector("#updatingCanvas");
+
+console.log(mouseCanvas)
 const ctx = canvas.getContext("2d");
 const playBtn1 = document.querySelector("#game1 .playPause");
 const game1OverDialog = document.getElementById("game1OverDialog");
