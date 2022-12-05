@@ -25,7 +25,6 @@ window.onload = (e) => {
     player.y = e.clientY - rect.top - Math.floor(player.h / 2) - 2;
     joojooImg.style.left = e.clientX + "px";
     joojooImg.style.top = e.clientY + "px";
-    console.log(player.x, player.y)
   };
 
   //load click action to start game
@@ -71,8 +70,6 @@ document.onclick = (e) => {
 /** @type {HTMLCanvasElement} */
 const mouseCanvas = document.querySelector("#mouseCanvas");
 const canvas = document.querySelector("#updatingCanvas");
-
-console.log(mouseCanvas)
 const ctx = canvas.getContext("2d");
 const playBtn1 = document.querySelector("#game1 .playPause");
 const game1OverDialog = document.getElementById("game1OverDialog");
@@ -129,7 +126,7 @@ function updateGame1() {
   if (pops.length > 0) pops.forEach((compo) => compo.update());
   player.update();
   checkColision();
-  if (gameObj.frames % 10 === 0) {
+  if (gameObj.frames % 15 === 0) {
     if(cubeGame){
       pops.push(
         new Composant(
@@ -184,6 +181,10 @@ function checkColision() {
           }
         if(pops[i].color =="green"){
           gameObj.score++;
+          if(gameObj.score%10 ===0 && gameObj.blood<3) gameObj.blood++
+          gameStatusDom.blood.innerText =
+          emptyHeart.repeat(3 - gameObj.blood) +
+          heart.repeat(gameObj.blood);
           gameStatusDom.score.innerText = "Score: " + gameObj.score;
         }
       pops.splice(i, 1);
