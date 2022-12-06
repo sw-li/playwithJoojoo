@@ -16,6 +16,7 @@ On load of the game page, there are three entries for three differents games
 - Game over when you lose all 3 bloods. 
 - pickup green cubes or non vegan dish for gaining points
 - every 10 scores give one blood recovery (3 blood max)
+---
 
 *technical challenges resoved in the making:*
 - smooth mouse mouvement, the drawn object on canvas block the onmousemove listener, which cause the control lagging. 
