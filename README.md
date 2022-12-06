@@ -6,6 +6,12 @@ On load of the game page, there are three entries for three differents games
 2. a memory card - pair the same photos of Joojoo
 3. a memory card - find the card with shrimps
 
+`
+technical challenges resoved in the making
+- smooth mouse mouvement, the drawn object on canvas block the onmousemove listener, which cause the control lagging. 
+- images loading for canivore mode, drawImg can't be executed when the images are not yet loaded
+`
+
 <br>
 
 ## Game 1
