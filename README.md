@@ -6,11 +6,12 @@ On load of the game page, there are three entries for three differents games
 2. a memory card - pair the same photos of Joojoo
 3. a memory card - find the card with shrimps
 
-`
-technical challenges resoved in the making
+
+*technical challenges resoved in the making:
 - smooth mouse mouvement, the drawn object on canvas block the onmousemove listener, which cause the control lagging. 
-- images loading for canivore mode, drawImg can't be executed when the images are not yet loaded
-`
+- double canvas relative position problems
+- images loading for canivore mode, drawImg can't be executed when the images are not yet loaded*
+
 
 <br>
 
@@ -21,6 +22,11 @@ technical challenges resoved in the making
 - pickup green cubes or non vegan dish for gaining points
 - every 10 scores give one blood recovery (3 blood max)
 
+
+*technical challenges resoved in the making:
+- chronometer synchronization (to be perfected with callback functions)
+- card flipping animation*
+
 <br> 
 
 ## Game 2
@@ -28,6 +34,9 @@ technical challenges resoved in the making
 - flip the cards one by one to pair them up until you find all the pairs. 
 - Option to time the game to make it more challenging. 
 
+
+*technical challenges resoved in the making:
+- card flipping delayed solution for flipping them twice*
 <br>
 
 ## Game 3
