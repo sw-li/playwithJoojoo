@@ -1,4 +1,4 @@
-*Play with Joojoo
+#Play with Joojoo
 > play with joojoo is a project inspired by my cat
 
 On load of the game page, there are three entries for three differents games
@@ -8,7 +8,7 @@ On load of the game page, there are three entries for three differents games
 
 <br>
 
-**Game 1
+##Game 1
 - a simple dodging game controled by mouse to avoid hit(red cubes, veggies and fruits)
 - 3 inital blood count, every hit cause one blood lose
 - Game over when you lose all 3 bloods. 
@@ -17,14 +17,14 @@ On load of the game page, there are three entries for three differents games
 
 <br> 
 
-**Game 2
+##Game 2
 
 - flip the cards one by one to pair them up until you find all the pairs. 
 - Option to time the game to make it more challenging. 
 
 <br>
 
-**Game 3
+##Game 3
 - you have a few seconds to look at all the cards before they all flip to back 
 - you should find all shrimp cards for finish the level. 
 - 3 initial blood count, every wrong card cause one blood lose
