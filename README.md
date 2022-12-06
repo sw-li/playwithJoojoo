@@ -30,7 +30,7 @@ On load of the game page, there are three entries for three differents games
 - flip the cards one by one to pair them up until you find all the pairs. 
 - Option to time the game to make it more challenging. 
 
-
+---
 *technical challenges resoved in the making:*
 - chronometer synchronization (to be perfected with callback functions)
 - card flipping animation
@@ -44,6 +44,6 @@ On load of the game page, there are three entries for three differents games
 - 3 initial blood count, every wrong card cause one blood lose
 - Game over when you lose all 3 bloods. 
 - based on the scores, Joojoo will allow different level of intamacy. from head petting to hugging. 
-
+---
 *technical challenges resoved in the making:*
 - card flipping delayed solution for flipping them twice
