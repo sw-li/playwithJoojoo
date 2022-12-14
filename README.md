@@ -1,5 +1,10 @@
+
+![cover photo](/images/cover.png)
+
 # Play with Joojoo
 > [play with joojoo](https://sw-li.github.io/playwithJoojoo/) is a project inspired by my cat
+> pure JS project
+
 
 On load of the game page, there are three entries for three differents games
 1. a dodging game
