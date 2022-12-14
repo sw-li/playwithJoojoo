@@ -54,3 +54,6 @@ On load of the game page, there are three entries for three differents games
 ---
 *technical challenges resoved in the making:*
 - card flipping delayed solution for flipping them twice
+
+
+> Organizational correction and encapsulation on going.
