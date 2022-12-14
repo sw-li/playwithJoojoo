@@ -1,5 +1,5 @@
 # Play with Joojoo
-> play with joojoo is a project inspired by my cat
+> [play with joojoo is a project inspired by my cat](https://sw-li.github.io/playwithJoojoo/)
 
 On load of the game page, there are three entries for three differents games
 1. a dodging game
