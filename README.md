@@ -7,6 +7,7 @@
 
 > pure JS project
 
+added this line for local test
 
 On load of the game page, there are three entries for three differents games
 1. a dodging game
